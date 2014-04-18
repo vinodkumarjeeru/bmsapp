@@ -11,8 +11,8 @@ import java.util.Arrays;
  *
  * @author Lalli
  */
-public class Accountant{
-    
+public class Accountant {
+
     private int accountnumber;
     private String firstName;
     private String name;
@@ -29,10 +29,18 @@ public class Accountant{
     private String stateName;
     private String countryName;
     private int pincode;
-    private String doccuments;
     private String email;
     private byte[] profilePicture;
     private byte[] fingerPrint;
+
+    public byte[] getDocument() {
+        return document;
+    }
+
+    public void setDocument(byte[] document) {
+        this.document = document;
+    }
+    private byte[] document;
 
     public int getAccountnumber() {
         return accountnumber;
@@ -162,14 +170,6 @@ public class Accountant{
         this.pincode = pincode;
     }
 
-    public String getDoccuments() {
-        return doccuments;
-    }
-
-    public void setDoccuments(String doccuments) {
-        this.doccuments = doccuments;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -194,55 +194,48 @@ public class Accountant{
         this.fingerPrint = fingerPrint;
     }
 
-   
-    
-    
-    
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Accountent [accountnumber=");
-		builder.append(accountnumber);
-		builder.append(", firstName=");
-		builder.append(firstName);
-		builder.append(", name=");
-		builder.append(name);
-		builder.append(", lastName=");
-		builder.append(lastName);
-		builder.append(", designation=");
-		builder.append(designation);
-		builder.append(", status=");
-		builder.append(status);
-		builder.append(", gender=");
-		builder.append(gender);
-		builder.append(", phonenumber=");
-		builder.append(phonenumber);
-		builder.append(", streetName=");
-		builder.append(streetName);
-		builder.append(", dooNO=");
-		builder.append(dooNO);
-		builder.append(", city=");
-		builder.append(city);
-		builder.append(", districtName=");
-		builder.append(districtName);
-		builder.append(", stateName=");
-		builder.append(stateName);
-		builder.append(", countryName=");
-		builder.append(countryName);
-		builder.append(", pincode=");
-		builder.append(pincode);
-		builder.append(", doccuments=");
-		builder.append(doccuments);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append(", profilePicture=");
-		builder.append(Arrays.toString(profilePicture));
-		builder.append(", fingerPrint=");
-		builder.append(Arrays.toString(fingerPrint));
-		builder.append("]");
-		return builder.toString();
-	}
-    
-    
-    
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Accountent [accountnumber=");
+        builder.append(accountnumber);
+        builder.append(", firstName=");
+        builder.append(firstName);
+        builder.append(", name=");
+        builder.append(name);
+        builder.append(", lastName=");
+        builder.append(lastName);
+        builder.append(", designation=");
+        builder.append(designation);
+        builder.append(", status=");
+        builder.append(status);
+        builder.append(", gender=");
+        builder.append(gender);
+        builder.append(", phonenumber=");
+        builder.append(phonenumber);
+        builder.append(", streetName=");
+        builder.append(streetName);
+        builder.append(", dooNO=");
+        builder.append(dooNO);
+        builder.append(", city=");
+        builder.append(city);
+        builder.append(", districtName=");
+        builder.append(districtName);
+        builder.append(", stateName=");
+        builder.append(stateName);
+        builder.append(", countryName=");
+        builder.append(countryName);
+        builder.append(", pincode=");
+        builder.append(pincode);
+        builder.append(", doccuments=");
+        builder.append(doccuments);
+        builder.append(", email=");
+        builder.append(email);
+        builder.append(", profilePicture=");
+        builder.append(Arrays.toString(profilePicture));
+        builder.append(", fingerPrint=");
+        builder.append(Arrays.toString(fingerPrint));
+        builder.append("]");
+        return builder.toString();
+    }
 }
