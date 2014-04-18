@@ -1,19 +1,20 @@
 package org.bankapp.web.utils;
 
-//~--- JDK imports ------------------------------------------------------------
+
 
 import java.io.IOException;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
-import java.util.logging.Logger;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 
 /**
  * Hold the Utility method related to cookies.
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Sudarsan
  */
 public class ServletUtils {
-    private static Logger LOG = Logger.getLogger(ServletUtils.class.getName());
+    private static final Logger LOG = Logger.getLogger(ServletUtils.class);
 
     /**
      * Adds a cookie for the given Request
@@ -68,7 +69,7 @@ public class ServletUtils {
                 String cookieValue = cookies[i].getValue();
 
                 if (cookieName.equals(name)) {
-                    LOG.fine("Expiring Cookie, name= " + cookieName + " value: " + cookieValue + " age: "
+                    LOG.warn("Expiring Cookie, name= " + cookieName + " value: " + cookieValue + " age: "
                              + cookies[i].getMaxAge());
                     cookies[i].setMaxAge(0);
                     cookies[i].setValue(null);
@@ -107,7 +108,7 @@ public class ServletUtils {
                 }
             }
         } catch (Exception e) {
-            LOG.fine("error while trying to get cookie value " + name);
+            LOG.warn("error while trying to get cookie value " + name);
         }
 
         return value;
