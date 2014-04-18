@@ -19,7 +19,7 @@ public class Accountant {
     private String designation;
     private String status;
     private String gender;
-    private int phonenumber;
+    private Long phonenumber;
     private String streetName;
     private String dooNO;
     private String city;
@@ -88,11 +88,11 @@ public class Accountant {
         this.gender = gender;
     }
 
-    public int getPhonenumber() {
+    public Long getPhonenumber() {
         return phonenumber;
     }
 
-    public void setPhonenumber(int phonenumber) {
+    public void setPhonenumber(Long phonenumber) {
         this.phonenumber = phonenumber;
     }
 
