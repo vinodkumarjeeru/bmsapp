@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 18 Apr, 2014, 3:35:14 PM
-    Author     : Sudarsan
+    Author     : Sravya
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -64,16 +64,19 @@
 
                                     <option>select</option>
                                     <option>Student</option>
-                                    <option>Employee</option>
-                                    <option>Housewife</option>
-                                    <option></option>
+                                     <option> Government Employee</option>
+                                    <option>PrivateSector Employee</option>
+                                   <option>Unemployee</option>
+                                   <option>Senior Citizens</option>
+                                 
+       
 
 
                                 </select>
 
 
                             </div>
-                            <div class="form-group" name="dob">
+                            <div class="form-group">
                                 <label>Date Of Birth</label>
 
                                 <select>
