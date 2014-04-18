@@ -10,7 +10,7 @@
         <param-value>BankApp</param-value>
     </context-param>
     <listener>
-        <listener-class>org.socialapp.web.utils.AppContextListener</listener-class>
+        <listener-class>org.bankapp.web.utils.AppContextListener</listener-class>
     </listener>
     <servlet>
         <servlet-name>LogOutController</servlet-name>
