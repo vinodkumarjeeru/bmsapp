@@ -20,6 +20,10 @@
         <servlet-name>RootServlet</servlet-name>
         <servlet-class>org.bankapp.web.utils.RootServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AccountCreationController</servlet-name>
+        <servlet-class>org.bankapp.controllers.AccountCreationController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LogOutController</servlet-name>
         <url-pattern>/LogOutController</url-pattern>
@@ -27,6 +31,10 @@
     <servlet-mapping>
         <servlet-name>RootServlet</servlet-name>
         <url-pattern>/RootServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountCreationController</servlet-name>
+        <url-pattern>/createAccount</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
