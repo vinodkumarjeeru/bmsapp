@@ -182,7 +182,7 @@ and open the template in the editor.
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="password" name="email" class="form-control"/>
+                                <input type="email" name="email" class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <label>Security Question</label>
