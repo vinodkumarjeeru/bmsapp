@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,7 +42,7 @@
                     <div class="panel panel-body">
 
 
-                        <form > 
+                        <form method="POST" action="${pageContext.request.contextPath}/createAccount"> 
 
 
 
@@ -64,12 +65,12 @@
 
                                     <option>select</option>
                                     <option>Student</option>
-                                     <option> Government Employee</option>
+                                    <option> Government Employee</option>
                                     <option>PrivateSector Employee</option>
-                                   <option>Unemployee</option>
-                                   <option>Senior Citizens</option>
-                                 
-       
+                                    <option>Unemployee</option>
+                                    <option>Senior Citizens</option>
+
+
 
 
                                 </select>
@@ -176,77 +177,27 @@
                                 <input type="text" name="country" class="form-control"/>
                                 <label>Pincode</label>
                                 <input type="text" name="pincode" class="form-control"/>
-
-
                             </div>
-
-
                             <div class="form-group">
                                 <label>Upload Image</label>
-
                                 <input type="file" name="profilepic" class="form-control"/> 
-
-
                             </div>
-
                             <div class="form-group">
                                 <label>Upload Signature</label>
-
                                 <input type="file" name="thumbPrint" class="form-control"/> 
-
-
                             </div>
                             <div class="form-group">
                                 <label>Upload Documents</label>
-
                                 <input type="file" name="proof" class="form-control"/> 
-
-
                             </div>
-
                             <div class="form-group">
                                 <input data-loading-text="please Wait" type="submit"  class="btn btn-success" value="Submit"/> 
-
-
-
-
                                 <input type="reset"  class="btn btn-danger" value="Reset"/> 
-
-
-
-
-
-
-
+                            </div>
                         </form>
 
-
-
-
                     </div>
-
-
-
-
-
-
-
                 </div>
-
             </div>
-
-
-
-
-
-
-
-
-        </div>
-
-
-
-
-
     </body>
 </html>
