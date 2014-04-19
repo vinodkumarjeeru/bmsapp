@@ -19,7 +19,7 @@ and open the template in the editor.
             #clerkcreationHeadDiv {
                 background-color: #428BCA;
             }
-            
+
         </style>
         <title>APP | CLERK</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -34,7 +34,8 @@ and open the template in the editor.
                 <div class="panel panel-primary">
                     <div class="panel panel-heading">Clerk Details</div>
                     <div class="panel panel-body">
-                        <form method="POST"> 
+                        
+                        <form method="POST" action="${pageContext.request.contextPath}/createClerk" enctype="multipart/form-data"> 
                             <div class="form-group">
                                 <label>FirstName</label>
                                 <input type="text" name="firstName"class="form-control"/>
@@ -49,7 +50,7 @@ and open the template in the editor.
                             </div>
                             <div class="form-group">
                                 <label>Date Of Birth</label>
-                                <input type="text" placeholder="DD-MM-YYYY" class="form-control"/>
+                                <input type="text" placeholder="DD-MM-YYYY" class="form-control" name="dob"/>
                             </div>
                             <div class="form-group">
                                 <label>Age</label>
@@ -78,7 +79,7 @@ and open the template in the editor.
                             <br/>
                             <div class="form-group">
                                 <label >Upload Image</label>
-                                <input type="file" class="form-control"/> 
+                                <input type="file" class="form-control" name="profilePicture"/> 
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-success" value="Submit"/> 
@@ -88,7 +89,7 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-            
+
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </body>  
