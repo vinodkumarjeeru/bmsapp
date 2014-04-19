@@ -59,7 +59,7 @@ and open the template in the editor.
                     <div class="panel panel-body">
 
 
-                        <form> 
+                        <form method="POST"> 
 
 
 
