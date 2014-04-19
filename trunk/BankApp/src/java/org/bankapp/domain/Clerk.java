@@ -141,7 +141,7 @@ public class Clerk {
         this.profilePic = profilePic;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
