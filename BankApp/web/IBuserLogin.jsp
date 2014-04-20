@@ -10,6 +10,57 @@
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+               
+               
+               $('#reset').click(function(){
+                   
+                   $('#userName').val('');
+                   $('#accountNumber').val('');
+                   $('#verificationCode').val('');
+                   $('#password').val('');
+                   
+                   
+                   
+               });
+               
+               $('#submit').click(function(){
+                
+                var userName = $('#userName').val();
+                   if(userName.length == 0 || userName == null) {
+                     $('#userNameDiv').addClass('has-error');
+                     
+                   }else {
+                       $('#userNameDiv').removeClass('has-error');
+                   }
+                   
+                   var accountNumber = $('#accountNumber').val();
+                   if(accountNumber.length == 0 || accountNumber == null) {
+                     $('#AccNoDiv').addClass('has-error');
+                   }else {
+                     $('#AccNoDiv').removeClass('has-error');  
+                   }
+                   
+                   var verificationCode = $('#verificationCode').val();
+                   if(verificationCode.length == 0 || verificationCode == null) {
+                     $('#verificationCodeDiv').addClass('has-error');
+                   }else{
+                      $('#verificationCodeDiv').removeClass('has-error');  
+                   }
+                   
+                   var password = $('#password').val();
+                   if(password.length == 0 || password == null) {
+                     $('#passwardDiv').addClass('has-error');
+                   }else{
+                     $('#passwardDiv').removeClass('has-error');  
+                   }
+               });
+            });
+
+        </script>
+
 
         <style type="text/css">
             #Design{
@@ -26,38 +77,38 @@
     <body>
         <h1 align='center'>LOGIN FORM</h1>
         <br/>
-        <form>
+        
             <div class ="form-group">
                 <div class ="well  well-lg" id="Design" >
 
-                    <div class ="form-group">
-                        <label align ="center">User Name</label>
-                        <input type="text" name="userName" class ="form-control" />
+                    <div class ="form-group" id="userNameDiv">
+                        <label class="control-label" align ="center">User Name</label>
+                        <input type="text" name="userName" class ="form-control" id="userName"/>
+                    </div>
+
+                    <div class ="form-group" id="AccNoDiv">
+                        <label class="control-label" align ="center">Account Number </label>
+                        <input type="text" name="accountNumber" class ="form-control" id="accountNumber" />
+                    </div>
+
+                    <div class ="form-group" id="verificationCodeDiv">
+                        <label class="control-label" align ="center">Verification Code </label>
+                        <input type="text" name="verificationCode" class ="form-control" id="verificationCode"/>
+                    </div>
+
+                    <div class ="form-group" id="passwardDiv">
+                        <label class="control-label" align ="center">Password</label>
+                        <input type="password" name="password" class ="form-control" id="password"/>
                     </div>
 
                     <div class ="form-group">
-                        <label align ="center">Account Number </label>
-                        <input type="text" name="userName" class ="form-control" />
-                    </div>
-
-                    <div class ="form-group">
-                        <label align ="center">Verification Code </label>
-                        <input type="text" name="userName" class ="form-control" />
-                    </div>
-
-                    <div class ="form-group">
-                        <label align ="center">Password</label>
-                        <input type="password" class ="form-control" />
-                    </div>
-
-                    <div class ="form-group">
-                        <button class ="btn btn-success">Submit</button>
-                        <button class ="btn btn-danger" align="right">Reset</button> </div>
+                         <input type="submit" class="btn btn-success" value="Submit" id="submit"/>
+                        <input type="reset" class="btn btn-danger" value="Reset" id="reset"/> </div>
                 </div>
 
             </div>
 
-        </form>
+      
 
 
 

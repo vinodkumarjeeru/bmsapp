@@ -11,8 +11,21 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/bootstrap.min.css" >
-        <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+                
+                $('#reset').click(function(){
+                    
+                });
+                
+            });
+                </script>
+        
         <style type="text/css">
             body{
                 background-color:#d9edf7;
@@ -140,6 +153,7 @@
                                 <label>Pin code</label>
                                 <input type="text" name="pincode" class="form-control"/>
                             </div>
+                            
                             <div class="form-group">
                                 <label>Upload Image</label>
                                 <input type="file" name="profilepic" class="form-control"/> 
