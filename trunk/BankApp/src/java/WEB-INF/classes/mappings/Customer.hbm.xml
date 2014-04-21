@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2014 10:52:37 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.bankapp.domain.Customer" table="customer" catalog="bankapp">
+        <id name="customerId" type="Long">
+            <column name="CustomerId" />
+            <generator class="assigned" />
+        </id>
+        <property name="accountId" type="java.lang.Long">
+            <column name="AccountId" />
+        </property>
+        <property name="detaildId" type="java.lang.Long">
+            <column name="DetaildId" />
+        </property>
+        <property name="userId" type="java.lang.Long">
+            <column name="UserId" />
+        </property>
+    </class>
+</hibernate-mapping>
