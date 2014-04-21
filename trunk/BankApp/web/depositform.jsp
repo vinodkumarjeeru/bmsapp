@@ -79,7 +79,7 @@
 
 
                         <form class="form-group" method="POST" action="${pageContext.request.contextPath}/depositAmount"> 
-                            <table class="table table-bordered table-responsive table-condensed" >
+                            <table class="table table-bordered table-responsive table-condensed"  name="table1">
                                 <tr>
                                     <td><label>Payment Voucher Number</label></td>
                                     <td><input type="text" class="form-control" name="payvocher" id="PVN"  ></td>
@@ -100,12 +100,12 @@
                                     <td><input type="text" class="form-control" name="customerName" id="customerName"></td>
                                 </tr>
                             </table>
-                            <table class="table-bordered  " align="center" name="deposit" >
+                            <table class="table-bordered  " align="center" name="table2" >
                                 <tr>
                                     <td align="center"><b>Denomination</b></td>  
                                     <td align="center"><b>No.Of Notes</b></td> 
                                     <th align="center"><b>Total Amount</b></th>  
-                                 </tr>
+                                </tr>
                                 <tr>
                                     <td align="center" id="thousands"> 1000</td>
                                     <td><input type="text" class="form-control" id="num1"/></td>
@@ -134,40 +134,30 @@
                                 <tr>
                                     <td align="center"></td>
                                     <td><h4 align="center">total</h4></td>
-                                    <td><input type="text" readonly="readonly" class="form-control" id="totalAmount"/></td>       
+                                    <td><input type="text" readonly="readonly" class="form-control" name="totalAmount"id="totalAmount"/></td>       
                                 </tr> 
                             </table>
 
-                            <table class="table table-bordered table-hover " name="denomination">
+                            <table class="table table-bordered table-hover " name="table3">
                                 <tr>
-
                                     <td><label>Amount in Rupees</label></td>
-                                    <td><input type="text" class="form-control"/></td>
-
+                                    <td><input type="text" class="form-control" name="amount" id="amt"/></td>
                                 </tr>  
                                 <tr>
-
                                     <td><label>Amount in Words</label></td>
-                                    <td><input type="text" class="form-control"/></td>
-
+                                    <td><input type="text" class="form-control" name="amt" id="amt"/></td>
                                 </tr> 
                                 <tr>
-
                                     <td><label>Depositor Name</label></td>
-                                    <td><input type="text" class="form-control"/></td>
-
+                                    <td><input type="text" class="form-control" name="depositorName" id="depositorName"/></td>
                                 </tr>        
                                 <tr>
-
                                     <td><label>Remarks/Reference(if any) </label></td>
-                                    <td><input type="text" class="form-control"/></td>
+                                    <td><input type="text" class="form-control" name="remarks" id="remarks"/></td>
                                     <td><label>Depositor ID </label></td>
-                                    <td><input type="text" class="form-control"/></td>
+                                    <td><input type="text" class="form-control" name="depositorId" id="depositorId"/></td>
                                 </tr>     
-
                             </table> 
-
-
                             <div class="form-group">
                                 <input data-loading-text="please Wait" type="submit" onclick="doWork();" class="btn btn-success" value="Submit"/> 
                                 <input type="reset"  align="center"class="btn btn-danger" value="Reset"/> 
