@@ -159,7 +159,6 @@ and open the template in the editor.
                 });
             });
         </script>
-    </script>
 
     <style type="text/css">
         #clerkcreationDiv {
