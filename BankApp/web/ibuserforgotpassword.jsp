@@ -14,18 +14,55 @@
         <link rel="stylesheet" href="css/bootstrap.min.css" >
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#passwordForm').submit(function() {
+                    var accountNumber = $('#accountNumber').val();
+                    var email = $('#email').val();
+                    var securityQuestion = $('#secQuestion').val();
+                    var answer = $('#answer').val();
+                    var status = true;
+
+                    if (accountNumber.length == 0 || accountNumber == null) {
+                        $('#accountNumberDiv').addClass('has-error');
+                        status = false;
+                    }
+                    else {
+                        $('#accountNumberDiv').removeClass('has-error');
+                    }
+
+                    if (email.length == 0 || email == null) {
+                        $('#emailDiv').addClass('has-error');
+                        status = false;
+                    } else {
+                        $('#emailDiv').removeClass('has-error');
+                    }
+
+                    if (securityQuestion.length == 0 || securityQuestion == null || securityQuestion == 'select') {
+                        $('#secQuestionDiv').addClass('has-error');
+                        status = false;
+                    } else {
+                        $('#secQuestionDiv').removeClass('has-error');
+                    }
+
+                    if (answer.length == 0 || answer == null) {
+                        $('#answerDiv').addClass('has-error');
+                        status = false;
+                    } else {
+                        $('#answerDiv').removeClass('has-error');
+                    }
+
+                    if (status == false) {
+                        return false;
+                    }
+                });
+            });
+        </script>
         <style type="text/css">
 
-            #well{
-                position:relative;
-                top:60px;
-                height:500px;
-                width:700px;
-                left:250px;
-                background-color: #3276b1;
-            }
-            #header{
-                background-color: #46b8da;
+           #clerkcreationDiv {
+                background-color: #428BCA;
+                
             }
 
         </style>
@@ -33,46 +70,60 @@
     </head>
     <body>
         <div class="container">
-            <div class="well well-sm" id="well">
-                <div class="panel panel-heading" id="header"><h3 align="center">Forgot Password</h3></div>
-                <div class="panel panel-body">
-                    <form method="post" action="${pageContext.request.contextPath}/forgotPassword">
-
-                        <div class="form-group">
-                            <label>Account Number</label>
-                            <input type="text" name="accountNumber" class="form-control" id="accountNumber"/>
-
-                        </div>
-                        <div class="form-group">
-                            <label>User Name</label>
-                            <input type="email" name="email" class="form-control" id="email" />
-                        </div>
-
-                        <div class="form-group">
-                            <label>Security Question</label>
-                            <select class="form-control" name="secQuestion" id="secQuestion" >
-
-                                <option>select</option>
-                                <option>What is your birth place</option>
-                                <option>What is your nickname </option>
-                                <option>Who is your favourite classTeacher</option>
-                                <option>What is your close Friend's name</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Answer</label>
-                            <input type="text" name="answer" class="form-control" id="answer"/>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" class='btn btn-success' value="Submit"/>
-                            <input type="reset"  class="btn btn-danger" value="Reset"/>
-                        </div>
-                    </form>
-
-                </div>
+            <div class="jumbotron" id="clerkcreationDiv">
+                <h2 align="center" class='bg-primary'>Forgot Password</h2>
             </div>
 
+            <div class="well well-lg">
+
+                <div class="panel panel-primary">
+
+                    <div class="panel panel-heading">Password Details</div>
+
+                    <div class="panel panel-body">
+                        <form method="post" action="${pageContext.request.contextPath}/forgotPassword" id="passwordForm">
+
+                            <div class="form-group" id="accountNumberDiv">
+                                <label>Account Number</label>
+                                <input type="text" name="accountNumber" class="form-control" id="accountNumber"/>
+
+                            </div>
+                            <div class="form-group" id="emailDiv">
+                                <label>Email</label>
+                                <input type="email" name="email" class="form-control" id="email" />
+                            </div>
+
+                            <div class="form-group" id="secQuestionDiv">
+                                <label>Security Question</label>
+                                <select class="form-control" name="secQuestion" id="secQuestion" >
+
+                                    <option>select</option>
+                                    <option>What is your birth place</option>
+                                    <option>What is your nickname </option>
+                                    <option>Who is your favourite classTeacher</option>
+                                    <option>What is your close Friend's name</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group" id="answerDiv">
+                                <label>Answer</label>
+                                <input type="text" name="email" class="form-control" id="answer" />
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <input type="submit" class='btn btn-success' value="Submit"/>
+                                <input type="reset"  class="btn btn-danger" value="Reset"/>
+                            </div>
+                        </form> 
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     </body>
 </html>
 
