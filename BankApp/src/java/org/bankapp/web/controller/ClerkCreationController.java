@@ -5,7 +5,6 @@
 package org.bankapp.web.controller;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -27,6 +26,8 @@ public class ClerkCreationController extends RootServlet {
     private static Logger LOG = Logger.getLogger(ClerkCreationController.class);
 
     public void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
         DiskFileItemFactory factory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(factory);
         try {
@@ -49,15 +50,16 @@ public class ClerkCreationController extends RootServlet {
             String phoneNumber = phNo.getString();
             FileItem SecurityQuestion = list.get(8);
             String secQuestion = SecurityQuestion.getString();
-            LOG.debug(secQuestion);
-//            FileItem answer = list.get(9);
-//            String ans = answer.getString();
+            out.println(secQuestion);
+//            LOG.debug(secQuestion);
+            // FileItem answer = list.get(9);
+            // String ans = answer.getString();
 //            FileItem profilePicture = list.get(10);
 //            InputStream picture = profilePicture.getInputStream();
         } catch (FileUploadException ex) {
             System.out.println(ex.getMessage());
         }
-        LOG.debug("Welcome To ClerkCreationController");
+       // LOG.debug("Welcome To ClerkCreationController");
 
     }
 }
