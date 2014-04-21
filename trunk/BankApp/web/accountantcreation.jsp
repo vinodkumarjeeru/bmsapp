@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <<!--
 To change this template, choose Tools | Templates
 and open the template in the editor.
@@ -184,7 +185,7 @@ and open the template in the editor.
 
                 <div class="panel panel-body">
 
-                    <form method="post" id="accountantForm"/>
+                    <form method="post" id="accountantForm" action="${pageContext.request.contextPath}/createAccount" enctype="multipart/form-data"/>
 
                     <div class="form-group" id="firstNameDiv">
                         <label class="control-label">First Name</label>
@@ -210,19 +211,19 @@ and open the template in the editor.
 
                     <div class="form-group" id="dateOfBirthDiv">
                         <label class="control-label">Date Of Birth</label>
-                        <input type="text" placeholder="DD-MM-YYYY" class="form-control" id="dateOfBirth"/>
+                        <input type="text" placeholder="DD-MM-YYYY" class="form-control" name="dateofBirth"id="dateOfBirth" />
                     </div>
 
                     <div class="form-group" id="genderDiv">
                         <label class="control-label" >Gender:</label><br/>
-                        &nbsp;&nbsp;&nbsp;<input type="radio" class="radio radio-inline" name="gender" id="gender"/>Male
-                        <input type="radio" class="radio radio-inline" name="gender"/>Female
+                        &nbsp;&nbsp;&nbsp;<input type="radio" class="radio radio-inline" name="gender" id="gender" value="Male"/>Male
+                        <input type="radio" class="radio radio-inline" name="gender" value="Female"/>Female
                     </div>
 
                     <div class="form-group" id="statusDiv">
                         <label class="control-label">Status</label><br/>
-                        <input type="radio" class="radio radio-inline" name="status" id="status"/>Married 
-                        <input type="radio" class="radio radio-inline" name="status"/> Unmarried 
+                        <input type="radio" class="radio radio-inline" name="status" id="status"value="married"/>Married 
+                        <input type="radio" class="radio radio-inline" name="status" value="married"> Unmarried 
                     </div>
 
                     <div class="form-group" id="doorNoDiv">
@@ -284,6 +285,13 @@ and open the template in the editor.
                         <input type="submit" class="btn btn-success" value="Submit" id="submit"/> 
                         <input type="reset" class="btn btn-warning" value="Reset" id="reset"/> 
                     </div>
+                    <%
+                        if (request.getAttribute("Msg") != null) {
+
+
+                    %>
+                    <h6> <%=(request.getAttribute("Msg"))%></h6>
+                    <% }%>
 
                     </form>
                 </div>
