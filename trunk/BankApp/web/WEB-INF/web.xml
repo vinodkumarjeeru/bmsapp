@@ -32,21 +32,18 @@
         <servlet-name>RootServlet</servlet-name>
         <url-pattern>/RootServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ClerkCreationController</servlet-name>
+        <servlet-class>org.bankapp.web.controller.ClerkCreationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClerkCreationController</servlet-name>
+        <url-pattern>/createClerk</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AccountCreationController</servlet-name>
         <url-pattern>/createAccount</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name> ClerkCreationController</servlet-name>
-        <servlet-class>org.bankapp.web.controller.ClerkCreationController</servlet-class>
-    </servlet>
-    <servlet-mapping> 
-        <servlet-name> ClerkCreationController</servlet-name>
-        <url-pattern> /createClerk</url-pattern>
-    </servlet-mapping>
-    
-    
-    
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
