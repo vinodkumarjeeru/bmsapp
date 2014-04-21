@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2014 10:52:37 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.bankapp.domain.Address" table="address" catalog="bankapp">
+        <id name="addressId" type="Long">
+            <column name="AddressId" />
+            <generator class="assigned" />
+        </id>
+        <property name="doorNo" type="string">
+            <column name="DoorNo" />
+        </property>
+        <property name="streetName" type="string">
+            <column name="StreetName" />
+        </property>
+        <property name="city" type="string">
+            <column name="City" length="25" />
+        </property>
+        <property name="country" type="string">
+            <column name="Country" length="25" />
+        </property>
+        <property name="district" type="string">
+            <column name="District" />
+        </property>
+        <property name="state" type="string">
+            <column name="State" />
+        </property>
+        <property name="pincode" type="java.lang.Long">
+            <column name="pincode" />
+        </property>
+    </class>
+</hibernate-mapping>
