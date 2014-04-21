@@ -21,28 +21,10 @@ and open the template in the editor.
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#clerkForm').submit(function() {
-                    // $('#reset').click(function() {
-
-                    $('#firstName').val('');
-                    $('#lastName').val('');
-                    $('#parentName').val('');
-                    $('#dateOfBirth').val('');
-                    $('#phNo').val('');
-                    $('#male').val('');
-                    $('#female').val('');
-                    $('#email').val('');
-                    $('#SecurityQuestion').val('');
-                    $('#answer').val('');
-                    $('#image').val('');
-
-                    // });
-
-                    //$('#submit').click(function() {
-
                     var firstName = $('#firstName').val();
                     if (firstName.length == 0 || firstName == null) {
                         $('#firstNameDiv').addClass('has-error');
-
+                        return false;
                     } else {
                         $('#firstNameDiv').removeClass('has-error');
                     }
@@ -50,6 +32,7 @@ and open the template in the editor.
                     var lastName = $('#lastName').val();
                     if (lastName.length == 0 || lastName == null) {
                         $('#lastNameDiv').addClass('has-error');
+                        return false;
                     } else {
                         $('#lastNameDiv').removeClass('has-error');
                     }
@@ -57,6 +40,7 @@ and open the template in the editor.
                     var parentName = $('#parentName').val();
                     if (parentName.length == 0 || parentName == null) {
                         $('#parentNameDiv').addClass('has-error');
+                        return false;
                     } else {
                         $('#parentNameDiv').removeClass('has-error');
                     }
@@ -64,22 +48,15 @@ and open the template in the editor.
                     var dateOfBirth = $('#dateOfBirth').val();
                     if (dateOfBirth.length == 0 || dateOfBirth == null) {
                         $('#dateOfBirthDiv').addClass('has-error');
+                        return false;
                     } else {
                         $('#dateOfBirthDiv').removeClass('has-error');
                     }
 
-//                   var gender = $('#gender').val();
-//                   
-//                   alert(gender);
-//                   if(gender.length == 0 || gender == null) {
-//                     $('#genderDiv').addClass('has-error');
-//                   }else{
-//                     $('#genderDiv').removeClass('has-error');  
-//                   }
-//                   
                     var email = $('#email').val();
                     if (email.length == 0 || email == null) {
                         $('#emailDiv').addClass('has-error');
+                        return false;
 
                     } else {
                         $('#emailDiv').removeClass('has-error');
@@ -88,6 +65,7 @@ and open the template in the editor.
                     var phNo = $('#phNo').val();
                     if (phNo.length == 0 || phNo == null) {
                         $('#phNoDiv').addClass('has-error');
+                        return false;
                     } else {
                         $('#phNoDiv').removeClass('has-error');
                     }
@@ -95,6 +73,7 @@ and open the template in the editor.
                     var SecurityQuestion = $('#SecurityQuestion').val();
                     if (SecurityQuestion.length == 0 || SecurityQuestion == null || SecurityQuestion == 'Select Your Option') {
                         $('#SecurityQuestionDiv').addClass('has-error');
+                        return false;
                     } else {
                         $('#SecurityQuestionDiv').removeClass('has-error');
                     }
@@ -102,6 +81,7 @@ and open the template in the editor.
                     var answer = $('#answer').val();
                     if (answer.length == 0 || answer == null) {
                         $('#answerDiv').addClass('has-error');
+                        return false;
                     } else {
                         $('#answerDiv').removeClass('has-error');
                     }
@@ -109,11 +89,12 @@ and open the template in the editor.
                     var image = $('#image').val();
                     if (image.length == 0 || image == null) {
                         $('#imageDiv').addClass('has-error');
+                        return false;
                     } else {
                         $('#imageDiv').removeClass('has-error');
                     }
 
-                    //});
+
 
                     $('#gender').attr('checked', 'checked');
                 });
@@ -144,7 +125,7 @@ and open the template in the editor.
 
                     <div class="panel panel-body">
 
-                        <form method="POST" id="clerkForm">
+                        <form method="POST" id="clerkForm" enctype="multipart/form-data" action="${pageContext.request.contextPath}/createClerk">
 
                             <div class="form-group" id="firstNameDiv">
                                 <label class="control-label">FirstName</label>
@@ -168,7 +149,7 @@ and open the template in the editor.
 
                             <div class="form-group" id="ageDiv">
                                 <label class="control-label">Age</label>
-                                <input type="text" readonly="readonly" class="form-control" id="age"/>
+                                <input type="text" readonly="readonly" class="form-control" value="5" id="age"/>
                             </div>
 
                             <div class="form-group" id="genderDiv">
@@ -189,7 +170,7 @@ and open the template in the editor.
 
                             <div class="form-group" id="SecurityQuestionDiv">
                                 <label class="control-label" >Security Question</label>
-                                <select class="form-control" id="SecurityQuestion" >
+                                <select class="form-control" id="SecurityQuestion" name="SecurityQuestion" >
                                     <option>Select Your Option</option>
                                     <option>What is nick name?</option>
                                     <option>Your favourite movie?</option>
@@ -208,7 +189,7 @@ and open the template in the editor.
 
                             <div class="form-group" id="imageDiv">
                                 <label class="control-label">Upload Image</label>
-                                <input type="file" class="form-control" id="image"/> 
+                                <input type="file" class="form-control" id="image" name="profilePicture"/> 
                             </div>
                             <br/>
 

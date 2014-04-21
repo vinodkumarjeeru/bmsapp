@@ -13,50 +13,39 @@
         <script type="text/javascript">
 
             $(document).ready(function() {
-               
-               
-               $('#reset').click(function(){
-                   
-                   $('#userName').val('');
-                   $('#accountNumber').val('');
-                   $('#verificationCode').val('');
-                   $('#password').val('');
-                   
-                   
-                   
-               });
-               
-               $('#submit').click(function(){
-                
-                var userName = $('#userName').val();
-                   if(userName.length == 0 || userName == null) {
-                     $('#userNameDiv').addClass('has-error');
-                     
-                   }else {
-                       $('#userNameDiv').removeClass('has-error');
-                   }
-                   
-                   var accountNumber = $('#accountNumber').val();
-                   if(accountNumber.length == 0 || accountNumber == null) {
-                     $('#AccNoDiv').addClass('has-error');
-                   }else {
-                     $('#AccNoDiv').removeClass('has-error');  
-                   }
-                   
-                   var verificationCode = $('#verificationCode').val();
-                   if(verificationCode.length == 0 || verificationCode == null) {
-                     $('#verificationCodeDiv').addClass('has-error');
-                   }else{
-                      $('#verificationCodeDiv').removeClass('has-error');  
-                   }
-                   
-                   var password = $('#password').val();
-                   if(password.length == 0 || password == null) {
-                     $('#passwardDiv').addClass('has-error');
-                   }else{
-                     $('#passwardDiv').removeClass('has-error');  
-                   }
-               });
+                $('#loginForm').submit(function() {
+                    var userName = $('#userName').val();
+                    if (userName.length == 0 || userName == null) {
+                        $('#userNameDiv').addClass('has-error');
+                        return false;
+                    } else {
+                        $('#userNameDiv').removeClass('has-error');
+                    }
+
+                    var accountNumber = $('#accountNumber').val();
+                    if (accountNumber.length == 0 || accountNumber == null) {
+                        $('#AccNoDiv').addClass('has-error');
+                        return false;
+                    } else {
+                        $('#AccNoDiv').removeClass('has-error');
+                    }
+
+                    var verificationCode = $('#verificationCode').val();
+                    if (verificationCode.length == 0 || verificationCode == null) {
+                        $('#verificationCodeDiv').addClass('has-error');
+                        return false;
+                    } else {
+                        $('#verificationCodeDiv').removeClass('has-error');
+                    }
+
+                    var password = $('#password').val();
+                    if (password.length == 0 || password == null) {
+                        $('#passwardDiv').addClass('has-error');
+                        return false;
+                    } else {
+                        $('#passwardDiv').removeClass('has-error');
+                    }
+                });
             });
 
         </script>
@@ -77,10 +66,10 @@
     <body>
         <h1 align='center'>LOGIN FORM</h1>
         <br/>
-        
-            <div class ="form-group">
-                <div class ="well  well-lg" id="Design" >
 
+        <div class ="form-group">
+            <div class ="well  well-lg" id="Design" >
+                <form id="loginForm">
                     <div class ="form-group" id="userNameDiv">
                         <label class="control-label" align ="center">User Name</label>
                         <input type="text" name="userName" class ="form-control" id="userName"/>
@@ -102,15 +91,16 @@
                     </div>
 
                     <div class ="form-group">
-                         <input type="submit" class="btn btn-success" value="Submit" id="submit"/>
+                        <input type="submit" class="btn btn-success" value="Submit" id="submit"/>
                         <input type="reset" class="btn btn-danger" value="Reset" id="reset"/> </div>
-                </div>
-
             </div>
+        </form>
 
-      
+    </div>
 
 
 
-    </body>
+
+
+</body>
 </html>
