@@ -5,6 +5,7 @@
 package org.bankapp.web.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -50,16 +51,17 @@ public class ClerkCreationController extends RootServlet {
             String phoneNumber = phNo.getString();
             FileItem SecurityQuestion = list.get(8);
             String secQuestion = SecurityQuestion.getString();
-            out.println(secQuestion);
-//            LOG.debug(secQuestion);
-            // FileItem answer = list.get(9);
-            // String ans = answer.getString();
-//            FileItem profilePicture = list.get(10);
-//            InputStream picture = profilePicture.getInputStream();
+            FileItem answer = list.get(9);
+            String ans = answer.getString();
+            FileItem profilePicture = list.get(10);
+            InputStream picture = profilePicture.getInputStream();
+
         } catch (FileUploadException ex) {
             System.out.println(ex.getMessage());
         }
-       // LOG.debug("Welcome To ClerkCreationController");
+        LOG.debug("Welcome To ClerkCreationController");
+        LOG.debug("Whole Servlet");
+
 
     }
 }
