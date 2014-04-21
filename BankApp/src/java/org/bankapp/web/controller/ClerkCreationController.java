@@ -15,6 +15,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.log4j.Logger;
 import org.bankapp.web.utils.RootServlet;
 
 /**
@@ -23,9 +24,9 @@ import org.bankapp.web.utils.RootServlet;
  */
 public class ClerkCreationController extends RootServlet {
 
+    private static Logger LOG = Logger.getLogger(ClerkCreationController.class);
+
     public void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        response.setContentType("text/html");
         DiskFileItemFactory factory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(factory);
         try {
@@ -44,20 +45,19 @@ public class ClerkCreationController extends RootServlet {
             String clerkGender = gender.getString();
             FileItem email = list.get(6);
             String clerkEmail = email.getString();
-            FileItem SecurityQuestion = list.get(7);
+            FileItem phNo = list.get(7);
+            String phoneNumber = phNo.getString();
+            FileItem SecurityQuestion = list.get(8);
             String secQuestion = SecurityQuestion.getString();
-            FileItem profilePicture = list.get(8);
-            InputStream picture = profilePicture.getInputStream();
-            out.println("Entered Data:");
-            out.println(picture.available() + secQuestion);
-
-
-
-
-
+            LOG.debug(secQuestion);
+//            FileItem answer = list.get(9);
+//            String ans = answer.getString();
+//            FileItem profilePicture = list.get(10);
+//            InputStream picture = profilePicture.getInputStream();
         } catch (FileUploadException ex) {
             System.out.println(ex.getMessage());
         }
+        LOG.debug("Welcome To ClerkCreationController");
 
     }
 }
