@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +15,7 @@
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <style type="text/css">
-           
+
             #well{
                 position:relative;
                 top:60px;
@@ -26,52 +27,52 @@
             #header{
                 background-color: #46b8da;
             }
-           
+
         </style>
-        
+
     </head>
     <body>
         <div class="container">
             <div class="well well-sm" id="well">
                 <div class="panel panel-heading" id="header"><h3 align="center">Forgot Password</h3></div>
-            <div class="panel panel-body">
-                <form>
-                    
-                     <div class="form-group">
-                                <label>Account Number</label>
-                                <input type="text" name="accountNumber" class="form-control"/>
-                    
-                     </div>
-                      <div class="form-group">
-                                <label>User Name</label>
-                                <input type="email" name="email" class="form-control"/>
-                      </div>
-                    
-                    <div class="form-group">
-                                <label>Security Question</label>
-                                <select class="form-control" name="secQuestion">
+                <div class="panel panel-body">
+                    <form method="post" action="${pageContext.request.contextPath}/forgotPassword">
 
-                                    <option>select</option>
-                                    <option>What is your birth place</option>
-                                    <option>What is your nickname </option>
-                                    <option>Who is your favourite classTeacher</option>
-                                    <option>What is your close Friend's name</option>
-                                    </select>
-                  </div>
-                   <div class="form-group">
-                                <label>Answer</label>
-                                <input type="text" name="answer" class="form-control"/>
-                   </div>
-                  <div class="form-group">
-                      <input type="submit" class='btn btn-success' value="Submit"/>
-                      <input type="reset"  class="btn btn-danger" value="Reset"/>
-                  </div>
-                </form>
-   
+                        <div class="form-group">
+                            <label>Account Number</label>
+                            <input type="text" name="accountNumber" class="form-control" id="accountNumber"/>
+
+                        </div>
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="email" name="email" class="form-control" id="email" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Security Question</label>
+                            <select class="form-control" name="secQuestion" id="secQuestion" >
+
+                                <option>select</option>
+                                <option>What is your birth place</option>
+                                <option>What is your nickname </option>
+                                <option>Who is your favourite classTeacher</option>
+                                <option>What is your close Friend's name</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Answer</label>
+                            <input type="text" name="answer" class="form-control" id="answer"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class='btn btn-success' value="Submit"/>
+                            <input type="reset"  class="btn btn-danger" value="Reset"/>
+                        </div>
+                    </form>
+
+                </div>
             </div>
-            </div>
-            
-            </div>
+
+        </div>
     </body>
 </html>
 

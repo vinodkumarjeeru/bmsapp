@@ -50,6 +50,57 @@
 
         </script>
 
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+               
+               
+               $('#reset').click(function(){
+                   
+                   $('#userName').val('');
+                   $('#accountNumber').val('');
+                   $('#verificationCode').val('');
+                   $('#password').val('');
+                   
+                   
+                   
+               });
+               
+               $('#submit').click(function(){
+                
+                var userName = $('#userName').val();
+                   if(userName.length == 0 || userName == null) {
+                     $('#userNameDiv').addClass('has-error');
+                     
+                   }else {
+                       $('#userNameDiv').removeClass('has-error');
+                   }
+                   
+                   var accountNumber = $('#accountNumber').val();
+                   if(accountNumber.length == 0 || accountNumber == null) {
+                     $('#AccNoDiv').addClass('has-error');
+                   }else {
+                     $('#AccNoDiv').removeClass('has-error');  
+                   }
+                   
+                   var verificationCode = $('#verificationCode').val();
+                   if(verificationCode.length == 0 || verificationCode == null) {
+                     $('#verificationCodeDiv').addClass('has-error');
+                   }else{
+                      $('#verificationCodeDiv').removeClass('has-error');  
+                   }
+                   
+                   var password = $('#password').val();
+                   if(password.length == 0 || password == null) {
+                     $('#passwardDiv').addClass('has-error');
+                   }else{
+                     $('#passwardDiv').removeClass('has-error');  
+                   }
+               });
+            });
+
+        </script>
+
 
         <style type="text/css">
             #Design{
@@ -104,3 +155,5 @@
 
 </body>
 </html>
+
+       
