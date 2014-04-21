@@ -22,9 +22,10 @@ and open the template in the editor.
             $(document).ready(function() {
                 $('#clerkForm').submit(function() {
                     var firstName = $('#firstName').val();
+                    var status = true;
                     if (firstName.length == 0 || firstName == null) {
                         $('#firstNameDiv').addClass('has-error');
-                        return false;
+                        status = false;
                     } else {
                         $('#firstNameDiv').removeClass('has-error');
                     }
@@ -32,7 +33,7 @@ and open the template in the editor.
                     var lastName = $('#lastName').val();
                     if (lastName.length == 0 || lastName == null) {
                         $('#lastNameDiv').addClass('has-error');
-                        return false;
+                       status = false;
                     } else {
                         $('#lastNameDiv').removeClass('has-error');
                     }
@@ -40,7 +41,7 @@ and open the template in the editor.
                     var parentName = $('#parentName').val();
                     if (parentName.length == 0 || parentName == null) {
                         $('#parentNameDiv').addClass('has-error');
-                        return false;
+                        status = false;
                     } else {
                         $('#parentNameDiv').removeClass('has-error');
                     }
@@ -48,7 +49,7 @@ and open the template in the editor.
                     var dateOfBirth = $('#dateOfBirth').val();
                     if (dateOfBirth.length == 0 || dateOfBirth == null) {
                         $('#dateOfBirthDiv').addClass('has-error');
-                        return false;
+                        status = false;
                     } else {
                         $('#dateOfBirthDiv').removeClass('has-error');
                     }
@@ -56,7 +57,7 @@ and open the template in the editor.
                     var email = $('#email').val();
                     if (email.length == 0 || email == null) {
                         $('#emailDiv').addClass('has-error');
-                        return false;
+                       status = false;
 
                     } else {
                         $('#emailDiv').removeClass('has-error');
@@ -65,7 +66,7 @@ and open the template in the editor.
                     var phNo = $('#phNo').val();
                     if (phNo.length == 0 || phNo == null) {
                         $('#phNoDiv').addClass('has-error');
-                        return false;
+                       status = false;
                     } else {
                         $('#phNoDiv').removeClass('has-error');
                     }
@@ -73,7 +74,7 @@ and open the template in the editor.
                     var SecurityQuestion = $('#SecurityQuestion').val();
                     if (SecurityQuestion.length == 0 || SecurityQuestion == null || SecurityQuestion == 'Select Your Option') {
                         $('#SecurityQuestionDiv').addClass('has-error');
-                        return false;
+                        status = false;
                     } else {
                         $('#SecurityQuestionDiv').removeClass('has-error');
                     }
@@ -81,7 +82,7 @@ and open the template in the editor.
                     var answer = $('#answer').val();
                     if (answer.length == 0 || answer == null) {
                         $('#answerDiv').addClass('has-error');
-                        return false;
+                        status = false;
                     } else {
                         $('#answerDiv').removeClass('has-error');
                     }
@@ -89,7 +90,7 @@ and open the template in the editor.
                     var image = $('#image').val();
                     if (image.length == 0 || image == null) {
                         $('#imageDiv').addClass('has-error');
-                        return false;
+                        status = false;
                     } else {
                         $('#imageDiv').removeClass('has-error');
                     }
@@ -97,6 +98,10 @@ and open the template in the editor.
 
 
                     $('#gender').attr('checked', 'checked');
+                    
+                    if(status == false){
+                        return false;
+                    }
                 });
             });
         </script>
