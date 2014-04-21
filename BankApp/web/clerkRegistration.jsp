@@ -11,9 +11,11 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html>
+
+
     <head>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -21,6 +23,7 @@ and open the template in the editor.
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#clerkForm').submit(function() {
+
                     var firstName = $('#firstName').val();
                     var status = true;
                     if (firstName.length == 0 || firstName == null) {
@@ -33,7 +36,7 @@ and open the template in the editor.
                     var lastName = $('#lastName').val();
                     if (lastName.length == 0 || lastName == null) {
                         $('#lastNameDiv').addClass('has-error');
-                       status = false;
+                        status = false;
                     } else {
                         $('#lastNameDiv').removeClass('has-error');
                     }
@@ -57,7 +60,7 @@ and open the template in the editor.
                     var email = $('#email').val();
                     if (email.length == 0 || email == null) {
                         $('#emailDiv').addClass('has-error');
-                       status = false;
+                        status = false;
 
                     } else {
                         $('#emailDiv').removeClass('has-error');
@@ -66,7 +69,7 @@ and open the template in the editor.
                     var phNo = $('#phNo').val();
                     if (phNo.length == 0 || phNo == null) {
                         $('#phNoDiv').addClass('has-error');
-                       status = false;
+                        status = false;
                     } else {
                         $('#phNoDiv').removeClass('has-error');
                     }
@@ -109,10 +112,10 @@ and open the template in the editor.
 
         </style>
         <title>APP | CLERK</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     </head>
     <body>
-        <br/>
+
         <div class="container">
             <div class="jumbotron" id="clerkcreationDiv">
                 <h2 align="center" class='bg-primary'>CLERK CREATION</h2>
@@ -130,7 +133,7 @@ and open the template in the editor.
 
                             <div class="form-group" id="firstNameDiv">
                                 <label class="control-label">FirstName</label>
-                                <input type="text" name="firstName"class="form-control" id="firstName"/>
+                                <input type="text" name="firstName" class="form-control" id="firstName"/>
                             </div>
 
                             <div class="form-group" id="lastNameDiv">
@@ -145,12 +148,12 @@ and open the template in the editor.
 
                             <div class="form-group" id="dateOfBirthDiv">
                                 <label class="control-label">Date Of Birth</label>
-                                <input type="text" placeholder="DD-MM-YYYY" class="form-control" id="dateOfBirth"/>
+                                <input type="text" placeholder="DD-MM-YYYY" class="form-control" id="dateOfBirth" name="dob"/>
                             </div>
 
                             <div class="form-group" id="ageDiv">
                                 <label class="control-label">Age</label>
-                                <input type="text" readonly="readonly" class="form-control" value="5" id="age"/>
+                                <input type="text" readonly="readonly" class="form-control" value="5" id="age" name="age"/>
                             </div>
 
                             <div class="form-group" id="genderDiv">
@@ -166,7 +169,7 @@ and open the template in the editor.
 
                             <div class="form-group" id="phNoDiv">
                                 <label class="control-label">Phone No</label>
-                                <input type="text" name="phNo" class="form-control" id="phNo"/>
+                                <input type="number" name="phNo" class="form-control" id="phNo"/>
                             </div>
 
                             <div class="form-group" id="SecurityQuestionDiv">
@@ -192,7 +195,7 @@ and open the template in the editor.
                                 <label class="control-label">Upload Image</label>
                                 <input type="file" class="form-control" id="image" name="profilePicture"/> 
                             </div>
-                            <br/>
+                            <br>
 
                             <div class="form-group">
                                 <input type="submit" class="btn btn-success" value="Submit" id="submit"/> 
@@ -204,9 +207,13 @@ and open the template in the editor.
 
 
                     </div>
+                </div>
+            </div>
+        </div>
 
-                    <script type="text/javascript" src="js/jquery.js"></script>
-                    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-                    </body>  
-                    </html>
+
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    </body>  
+</html>
 
