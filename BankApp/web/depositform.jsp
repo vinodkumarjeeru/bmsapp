@@ -44,21 +44,14 @@
                 });
 
             });
-
-
-
-
-
-
-
-
-
-
-
         </Script>
         <style type="text/css">
 
+            #small{
 
+                background-color: #428bca;
+
+            }
             #datediv{
                 position:relative;
                 left:400px;
@@ -77,111 +70,112 @@
     <body>
         <div class="container">
             <div class="well well-lg"></div>
-            <div class="well well-sm">
+            <div class="well well-sm" id="small" >
                 <div class="panel panel-primary">
 
                     <div class="panel panel-heading"><h3 align="center"> DEPOSIT FORM</h3></div>
-                    <div class="panel panel-body">
+                    <div class="panel panel-body" id="form">
 
 
 
-                        <form class="form-group"> 
-                            <table class="table table-bordered table-hover table-striped" >
+                        <form class="form-group" method="POST" action="${pageContext.request.contextPath}/depositAmount"> 
+                            <table class="table table-bordered table-responsive table-condensed" >
                                 <tr>
-
-
-                                    <td><label>Payment Vocher Number</label></td>
-                                    <td><input type="text" class="form-control" ></td>
-
+                                    <td><label>Payment Voucher Number</label></td>
+                                    <td><input type="text" class="form-control" name="payvocher" id="PVN"  ></td>
                                     <td><label>Date</label></td>
-                                    <td><input type="text" class="form-control" ></td>
-
+                                    <td><input type="text" class="form-control" name="date" id="date"></td>
                                 </tr>
                                 <tr>
 
                                     <td><label>Branch Name</label></td>
-                                    <td><input type="text" class="form-control"></td>
-
+                                    <td><input type="text" class="form-control" name="branchName" id="branchName"></td>
                                 </tr>
                                 <tr>
-
                                     <td><label>Account Number</label></td>
-                                    <td><input type="text" class="form-control"></td>
-
+                                    <td><input type="text" class="form-control" name="accountNumber" id="accountNumber"></td>
                                 </tr>
                                 <tr>
-
                                     <td><label>Customer Name</label></td>
-                                    <td><input type="text" class="form-control"></td>
-
+                                    <td><input type="text" class="form-control" name="customerName" id="customerName"></td>
                                 </tr>
                             </table>
-                            <table class="table-bordered table-hover table-striped">
+                            <table class="table-bordered  " align="center" name="deposit" >
                                 <tr>
-
-                                    <th><label class="form-control">denomination</label></th>  
-                                    <th><label class="form-control">no of notes</label></th> 
-                                    <th><label class="form-control">total amount</label></th>  
-
+                                    <td align="center"><b>Denomination</b></td>  
+                                    <td align="center"><b>No.Of Notes</b></td> 
+                                    <th align="center"><b>Total Amount</b></th>  
+                                 </tr>
+                                <tr>
+                                    <td align="center" id="thousands"> 1000</td>
+                                    <td><input type="text" class="form-control" id="num1"/></td>
+                                    <td><input type="text" readonly="readonly" class="form-control" id="tot1"  onfocus="calc();"/></td>       
                                 </tr>
                                 <tr>
-                                    <td>1000*</td>
-                                    <td><input type="text" class="form-control"</td>
-                                    <td><input type="text" class="form-control"</td>       
-                                </tr>
-                                <tr>
-                                    <td>500*</td>
-                                    <td><input type="text" class="form-control"</td>
-                                    <td><input type="text" class="form-control"</td>       
+                                    <td align="center" id="fivehundreds" >500</td>
+                                    <td><input type="text" class="form-control" id="num2"/></td>
+                                    <td><input type="text" readonly="readonly" class="form-control"id="tot2" onfocus="sum();"/></td>       
                                 </tr>    
                                 <tr>
-                                    <td>100*</td>
-                                    <td><input type="text" class="form-control"</td>
-                                    <td><input type="text" class="form-control"</td>       
+                                    <td align="center" id="hundreds">100</td>
+                                    <td><input type="text" class="form-control" id="num3"/></td>
+                                    <td><input type="text" readonly="readonly" class="form-control" id="tot3"/></td>       
                                 </tr>   
                                 <tr>
-                                    <td>10*</td>
-                                    <td><input type="text" class="form-control"</td>
-                                    <td><input type="text" class="form-control"</td>       
+                                    <td align="center" id="tens">10</td>
+                                    <td><input type="text" class="form-control" id="num4"/></td>
+                                    <td><input type="text" readonly="readonly" class="form-control" id="tot4"/></td>       
                                 </tr>    
-
+                                <tr>
+                                    <td align="center" id="five">5</td>
+                                    <td><input type="text" class="form-control" id="num5"/></td>
+                                    <td><input type="text" readonly="readonly" class="form-control" id="tot5"/></td>       
+                                </tr>  
+                                <tr>
+                                    <td align="center"></td>
+                                    <td><h4 align="center">total</h4></td>
+                                    <td><input type="text" readonly="readonly" class="form-control" id="totalAmount"/></td>       
+                                </tr> 
                             </table>
 
-                            <table class="table table-bordered table-hover table-striped" > 
-
+                            <table class="table table-bordered table-hover " name="denomination">
                                 <tr>
 
                                     <td><label>Amount in Rupees</label></td>
-                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"/></td>
 
                                 </tr>  
                                 <tr>
 
                                     <td><label>Amount in Words</label></td>
-                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"/></td>
 
                                 </tr> 
                                 <tr>
 
                                     <td><label>Depositor Name</label></td>
-                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"/></td>
 
                                 </tr>        
                                 <tr>
 
                                     <td><label>Remarks/Reference(if any) </label></td>
-                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"/></td>
                                     <td><label>Depositor ID </label></td>
-                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"/></td>
                                 </tr>     
 
                             </table> 
 
+
+                            <div class="form-group">
+                                <input data-loading-text="please Wait" type="submit" onclick="doWork();" class="btn btn-success" value="Submit"/> 
+                                <input type="reset"  align="center"class="btn btn-danger" value="Reset"/> 
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-
     </body>
 </html>
-
