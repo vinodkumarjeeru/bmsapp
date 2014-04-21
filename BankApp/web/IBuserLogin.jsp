@@ -1,6 +1,7 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,97 +12,43 @@
         <script src="js/bootstrap.min.js"></script>
 
         <script type="text/javascript">
-
             $(document).ready(function() {
                 $('#loginForm').submit(function() {
+                    var status = true;
                     var userName = $('#userName').val();
                     if (userName.length == 0 || userName == null) {
                         $('#userNameDiv').addClass('has-error');
-                        return false;
+                        status = false;
                     } else {
                         $('#userNameDiv').removeClass('has-error');
                     }
-
                     var accountNumber = $('#accountNumber').val();
                     if (accountNumber.length == 0 || accountNumber == null) {
                         $('#AccNoDiv').addClass('has-error');
-                        return false;
+                        status = false;
                     } else {
                         $('#AccNoDiv').removeClass('has-error');
                     }
-
                     var verificationCode = $('#verificationCode').val();
                     if (verificationCode.length == 0 || verificationCode == null) {
                         $('#verificationCodeDiv').addClass('has-error');
-                        return false;
+                        status = false;
                     } else {
                         $('#verificationCodeDiv').removeClass('has-error');
                     }
-
                     var password = $('#password').val();
                     if (password.length == 0 || password == null) {
                         $('#passwardDiv').addClass('has-error');
-                        return false;
+                        status = false;
                     } else {
                         $('#passwardDiv').removeClass('has-error');
                     }
+                    if (status == false) {
+                        return false;
+                    }
                 });
             });
-
         </script>
-
-        <script type="text/javascript">
-
-            $(document).ready(function() {
-               
-               
-               $('#reset').click(function(){
-                   
-                   $('#userName').val('');
-                   $('#accountNumber').val('');
-                   $('#verificationCode').val('');
-                   $('#password').val('');
-                   
-                   
-                   
-               });
-               
-               $('#submit').click(function(){
-                
-                var userName = $('#userName').val();
-                   if(userName.length == 0 || userName == null) {
-                     $('#userNameDiv').addClass('has-error');
-                     
-                   }else {
-                       $('#userNameDiv').removeClass('has-error');
-                   }
-                   
-                   var accountNumber = $('#accountNumber').val();
-                   if(accountNumber.length == 0 || accountNumber == null) {
-                     $('#AccNoDiv').addClass('has-error');
-                   }else {
-                     $('#AccNoDiv').removeClass('has-error');  
-                   }
-                   
-                   var verificationCode = $('#verificationCode').val();
-                   if(verificationCode.length == 0 || verificationCode == null) {
-                     $('#verificationCodeDiv').addClass('has-error');
-                   }else{
-                      $('#verificationCodeDiv').removeClass('has-error');  
-                   }
-                   
-                   var password = $('#password').val();
-                   if(password.length == 0 || password == null) {
-                     $('#passwardDiv').addClass('has-error');
-                   }else{
-                     $('#passwardDiv').removeClass('has-error');  
-                   }
-               });
-            });
-
-        </script>
-
-
         <style type="text/css">
             #Design{
                 position: relative;
@@ -120,7 +67,7 @@
 
         <div class ="form-group">
             <div class ="well  well-lg" id="Design" >
-                <form id="loginForm">
+                <form method="post" id="loginForm" action="${pageContext.request.contextPath}/login">
                     <div class ="form-group" id="userNameDiv">
                         <label class="control-label" align ="center">User Name</label>
                         <input type="text" name="userName" class ="form-control" id="userName"/>
@@ -144,16 +91,17 @@
                     <div class ="form-group">
                         <input type="submit" class="btn btn-success" value="Submit" id="submit"/>
                         <input type="reset" class="btn btn-danger" value="Reset" id="reset"/> </div>
+                </form>
+
             </div>
-        </form>
 
-    </div>
-
+        </div>
 
 
 
 
-</body>
+
+    </body>
 </html>
 
-       
+
