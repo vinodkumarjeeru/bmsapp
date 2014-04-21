@@ -94,14 +94,10 @@ and open the template in the editor.
                     } else {
                         $('#imageDiv').removeClass('has-error');
                     }
-
-
-
-                    $('#gender').attr('checked', 'checked');
-                    
                     if(status == false){
                         return false;
                     }
+                     $('#gender').attr('checked', 'checked');
                 });
             });
         </script>
