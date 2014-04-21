@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +14,48 @@
         <link rel="stylesheet" href="css/bootstrap.min.css" >
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <Script type="text/javascript">
+            $(document).ready(function() {
+                var total1, total2, total3, total4, total5;
+                $('#tot1').focus(function() {
+                    total1 = $('#tot1').val($('#thousands').html() * $('#num1').val());
+
+                });
+                $('#tot2').focus(function() {
+                    total2 = $('#tot2').val($('#fivehundreds').html() * $('#num2').val());
+                });
+
+                $('#tot3').focus(function() {
+                    total3 = $('#tot3').val($('#hundreds').html() * $('#num3').val());
+                });
+
+                $('#tot4').focus(function() {
+
+                    total4 = $('#tot4').val($('#tens').html() * $('#num4').val());
+                });
+
+                $('#tot5').focus(function() {
+                    total5 = $('#tot5').val($('#five').html() * $('#num5').val());
+                });
+
+                $('#totalAmount').focus(function() {
+
+                    $('#totalAmount').val(parseInt(total1.val()) + parseInt(total2.val()) + parseInt(total3.val()) + parseInt(total4.val()) + parseInt(total5.val()));
+                });
+
+            });
+
+
+
+
+
+
+
+
+
+
+
+        </Script>
         <style type="text/css">
 
 
@@ -21,7 +64,11 @@
                 left:400px;
 
             }
+            #form{
 
+                background-color: #afd9ee;
+
+            }
 
         </style>
 
