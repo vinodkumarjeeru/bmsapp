@@ -10,6 +10,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.bankapp.bankservices.BankServices;
 import org.bankapp.domain.Customer;
@@ -21,23 +22,26 @@ public class AdminClerkLoginController extends RootServlet {
     private static Logger LOG = Logger.getLogger(AdminClerkLoginController.class);
 
     public void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        BankServices service = BankServiceUtils.getInstance();
+
         String userId = request.getParameter("userId");
         String password = request.getParameter("password");
-
+        Customer customer = service.getCustomerById(new Long(userId));
+        String pwd = customer.getUserId().getOldPassword();
         LOG.debug(userId);
         LOG.debug(password);
-        BankServices service = BankServiceUtils.getInstance();
-        Customer customer = service.getCustomerById(new Long(userId));
-        System.out.println(customer);
-        
-        if (customer == null) {
+        if (customer == null || (!password.equals(pwd))) {
             LOG.debug("Customer Not Avaliable (Or) Invalid Details are entered)");
             request.setAttribute("UserError", "Invalid Details are entered");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/AdminClrekLogin.jsp");
             dispatcher.forward(request, response);
             return;
         }
-        response.sendRedirect("AdminHome.jsp");
-        LOG.debug(userId + password);
+        HttpSession session = request.getSession();
+        session.setAttribute("BankUser", "Bank");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/AdminHome.jsp");
+        dispatcher.forward(request, response);
+
+
     }
 }
