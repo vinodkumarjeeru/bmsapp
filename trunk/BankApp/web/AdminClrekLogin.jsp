@@ -60,17 +60,17 @@
             <div class="well well-sm" id="well">
                 <div class="panel panel-heading" id="header"><h3 align="center">LOGIN FORM</h3></div>
                 <div class="panel panel-body">
-                    <form method="POST" id="adminclerkform">
+                    <form method="POST" id="adminclerkform" action="${pageContext.request.contextPath}/adcllogin">
 
                         <div class="form-group"id="userNamediv">
-                            <label>Username</label>
-                            <input type="text" name="userName" class="form-control" id="userName"/>
+                            <label>User Id</label>
+                            <input type="number" name="userId" class="form-control" id="userName"/>
 
                         </div>
 
                         <div class="form-group" id="passworddiv">
                             <label>Password</label>
-                            <input type="text" name="password" class="form-control" id="password"/>
+                            <input type="password" name="password" class="form-control" id="password"/>
 
                         </div>
 
@@ -78,6 +78,13 @@
                             <input type="submit" class='btn btn-success' value="Submit" id="submit"/>
                             <input type="reset"  class="btn btn-danger" value="Reset" id="reset"/>
                         </div>
+                        <%
+                            if (request.getAttribute("UserError") != null) {
+                        %>
+                        <h6><font color="red"><%=(request.getAttribute("UserError"))%></font></h6>
+                            <%
+                                }
+                            %>
                     </form>
                 </div>
             </div>
