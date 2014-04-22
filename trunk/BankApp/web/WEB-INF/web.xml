@@ -64,7 +64,14 @@
         <url-pattern>/forgotPassword</url-pattern> 
     </servlet-mapping>
 
-   
+    <servlet>
+        <servlet-name>AdminClerkLoginController</servlet-name>
+        <servlet-class>org.bankapp.web.controller.AdminClerkLoginController</servlet-class> 
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminClerkLoginController</servlet-name>
+        <url-pattern>/adcllogin</url-pattern> 
+    </servlet-mapping>
     
    <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
