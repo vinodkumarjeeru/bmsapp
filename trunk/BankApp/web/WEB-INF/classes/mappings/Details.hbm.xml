@@ -3,43 +3,42 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Apr 21, 2014 10:52:37 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="org.bankapp.domain.Details" table="details" catalog="bankapp">
-        <id name="detailsId" type="Long">
+    <class name="org.bankapp.domain.Details" table="details">
+        <id name="detailsId">
             <column name="DetailsId" />
             <generator class="assigned" />
         </id>
-        <property name="firstName" type="string">
+        <property name="firstName">
             <column name="First_Name" />
         </property>
-        <property name="lastName" type="string">
+        <property name="lastName">
             <column name="Last_Name" />
         </property>
-        <property name="mobile" type="string">
-            <column name="Mobile" length="25" />
+        <property name="mobile">
+            <column name="Mobile"/>
         </property>
-        <property name="emailId" type="string">
-            <column name="EmailId" />
+        <property name="emailId">
+            <column name="EmailId"/>
         </property>
-        <property name="picture" type="binary">
-            <column name="Picture" />
+        <property name="picture">
+            <column name="Picture"/>
         </property>
-        <property name="signature" type="binary">
-            <column name="Signature" />
+        <property name="signature">
+            <column name="Signature"/>
         </property>
-        <property name="accountType" type="string">
-            <column name="AccountType" length="25" />
+        <property name="accountType">
+            <column name="AccountType"/>
         </property>
-        <property name="minimumBalance" type="java.lang.Double">
-            <column name="MinimumBalance" precision="22" scale="0" />
+        <property name="minimumBalance">
+            <column name="MinimumBalance"/>
         </property>
-        <property name="addressId" type="java.lang.Long">
-            <column name="AddressID" />
-        </property>
-        <property name="parentName" type="string">
+        <property name="parentName">
             <column name="ParentName" />
         </property>
-        <property name="designation" type="string">
+        <property name="designation">
             <column name="Designation" />
         </property>
+        
+        <many-to-one column="AddressID" name="addressId" cascade="all" update="true"/>
     </class>
 </hibernate-mapping>
