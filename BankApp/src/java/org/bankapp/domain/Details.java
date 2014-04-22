@@ -13,16 +13,14 @@ public class Details implements java.io.Serializable {
     private String emailId;
     private byte[] picture;
     private byte[] signature;
+    private byte[] documents;
     private String accountType;
+    private String securityQuestion;
+    private String securityAnswer;
+    private String DateOfBirth;
     private Double minimumBalance;
 
-    public Details() {
-    }
-    private Address addressId;
-    private String parentName;
-    private String designation;
-
-    public Details(Long detailsId, String firstName, String lastName, String mobile, String emailId, byte[] picture, byte[] signature, String accountType, Double minimumBalance, Address addressId, String parentName, String designation) {
+    public Details(Long detailsId, String firstName, String lastName, String mobile, String emailId, byte[] picture, byte[] signature, byte[] documents, String accountType, String securityQuestion, String securityAnswer, String DateOfBirth, Double minimumBalance) {
         this.detailsId = detailsId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -30,15 +28,19 @@ public class Details implements java.io.Serializable {
         this.emailId = emailId;
         this.picture = picture;
         this.signature = signature;
+        this.documents = documents;
         this.accountType = accountType;
+        this.securityQuestion = securityQuestion;
+        this.securityAnswer = securityAnswer;
+        this.DateOfBirth = DateOfBirth;
         this.minimumBalance = minimumBalance;
-        this.addressId = addressId;
-        this.parentName = parentName;
-        this.designation = designation;
     }
 
     public Details(Long detailsId) {
         this.detailsId = detailsId;
+    }
+
+    public Details() {
     }
 
     public Long getDetailsId() {
@@ -97,12 +99,44 @@ public class Details implements java.io.Serializable {
         this.signature = signature;
     }
 
+    public byte[] getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(byte[] documents) {
+        this.documents = documents;
+    }
+
     public String getAccountType() {
         return accountType;
     }
 
     public void setAccountType(String accountType) {
         this.accountType = accountType;
+    }
+
+    public String getSecurityQuestion() {
+        return securityQuestion;
+    }
+
+    public void setSecurityQuestion(String securityQuestion) {
+        this.securityQuestion = securityQuestion;
+    }
+
+    public String getSecurityAnswer() {
+        return securityAnswer;
+    }
+
+    public void setSecurityAnswer(String securityAnswer) {
+        this.securityAnswer = securityAnswer;
+    }
+
+    public String getDateOfBirth() {
+        return DateOfBirth;
+    }
+
+    public void setDateOfBirth(String DateOfBirth) {
+        this.DateOfBirth = DateOfBirth;
     }
 
     public Double getMinimumBalance() {
@@ -113,34 +147,10 @@ public class Details implements java.io.Serializable {
         this.minimumBalance = minimumBalance;
     }
 
-    public Address getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(Address addressId) {
-        this.addressId = addressId;
-    }
-
-    public String getParentName() {
-        return parentName;
-    }
-
-    public void setParentName(String parentName) {
-        this.parentName = parentName;
-    }
-
-    public String getDesignation() {
-        return designation;
-    }
-
-    public void setDesignation(String designation) {
-        this.designation = designation;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + (this.detailsId != null ? this.detailsId.hashCode() : 0);
+        int hash = 7;
+        hash = 89 * hash + (this.detailsId != null ? this.detailsId.hashCode() : 0);
         return hash;
     }
 
@@ -161,6 +171,8 @@ public class Details implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return "Details{" + "detailsId=" + detailsId + ", firstName=" + firstName + ", lastName=" + lastName + ", mobile=" + mobile + ", emailId=" + emailId + ", picture=" + picture + ", signature=" + signature + ", accountType=" + accountType + ", minimumBalance=" + minimumBalance + ", addressId=" + addressId + ", parentName=" + parentName + ", designation=" + designation + '}';
+        return "Details{" + "detailsId=" + detailsId + ", firstName=" + firstName + ", lastName=" + lastName + ", mobile=" + mobile + ", emailId=" + emailId + ", picture=" + picture + ", signature=" + signature + ", documents=" + documents + ", accountType=" + accountType + ", securityQuestion=" + securityQuestion + ", securityAnswer=" + securityAnswer + ", DateOfBirth=" + DateOfBirth + ", minimumBalance=" + minimumBalance + '}';
     }
+    
+    
 }
