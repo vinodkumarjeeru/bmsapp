@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Apr 21, 2014 10:52:37 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="org.bankapp.domain.Bankuser" table="bankuser">
+    <class name="org.bankapp.domain.Bankuser" table="bankuser" lazy="false">
         <id name="userId">
             <column name="UserId" />
             <generator class="assigned"/>
