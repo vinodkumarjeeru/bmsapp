@@ -3,13 +3,13 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Apr 21, 2014 10:52:37 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="org.bankapp.domain.Balance" table="balance" catalog="bankapp">
-        <id name="accountId" type="Long">
+    <class name="org.bankapp.domain.Balance" table="balance">
+        <id name="accountId">
             <column name="AccountId" />
             <generator class="assigned" />
         </id>
-        <property name="balance" type="java.lang.Double">
-            <column name="Balance" precision="22" scale="0" />
+        <property name="balance">
+            <column name="Balance"/>
         </property>
     </class>
 </hibernate-mapping>

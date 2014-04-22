@@ -3,18 +3,18 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Apr 21, 2014 10:52:37 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="org.bankapp.domain.Bankuser" table="bankuser" catalog="bankapp">
-        <id name="userId" type="Long">
+    <class name="org.bankapp.domain.Bankuser" table="bankuser">
+        <id name="userId">
             <column name="UserId" />
-            <generator class="assigned" />
+            <generator class="assigned"/>
         </id>
-        <property name="password" type="string">
-            <column name="password" length="25555" />
+        <property name="password">
+            <column name="password"/>
         </property>
-        <property name="secretKey" type="string">
-            <column name="SecretKey" length="25555" />
+        <property name="secretKey">
+            <column name="SecretKey"/>
         </property>
-        <property name="role" type="string">
+        <property name="role">
             <column name="role" />
         </property>
     </class>
