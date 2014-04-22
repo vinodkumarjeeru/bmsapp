@@ -10,37 +10,36 @@ import org.hibernate.Transaction;
 
 public class BankServicesImpl implements BankServices {
 
-    private Session session = null;
-    private Transaction transaction = null;
-
-    private static BankServicesImpl IMPL = new BankServicesImpl();
+    private Session session = HibernateUtils.currentSession();
     
-    public BankServicesImpl() {
+    private Transaction transaction = session.beginTransaction();
+    private static BankServicesImpl IMPL = new BankServicesImpl();
+
+    public static BankServices getInstance() {
+        return IMPL;
+    }
+
+    private BankServicesImpl() {
     }
 
     public void createAccount(Customer customer) {
-        session = HibernateUtils.currentSession();
-        transaction = session.beginTransaction();
         session.save(customer);
         transaction.commit();
-        session.close();
+
 
     }
 
     public void deleteAccount(Customer customer) {
-        session = HibernateUtils.currentSession();
-        transaction = session.beginTransaction();
+
         session.delete(customer);
         transaction.commit();
-        session.close();
+
     }
 
     public void changeAccountDetails(Customer customer) {
-        session = HibernateUtils.currentSession();
-        transaction = session.beginTransaction();
+
         session.merge(customer);
         transaction.commit();
-        session.close();
     }
 
     public void createDebitCard(Customer customer) {
@@ -52,10 +51,17 @@ public class BankServicesImpl implements BankServices {
     }
 
     public List<Customer> retrieveList() {
-        session = HibernateUtils.currentSession();
+
         Query query = session.createQuery("from Customer");
         List<Customer> list = query.list();
-        session.close();
+
         return list;
+    }
+
+    public Customer getCustomerById(Long id) {
+        Query q = session.createQuery("from Customer customer where customer.customerId=:customerId");
+        q.setParameter("customerId", new Long(id));
+        Customer c = (Customer) q.uniqueResult();
+        return c;
     }
 }
