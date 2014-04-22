@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2014 10:52:37 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.bankapp.domain.Details" table="details" catalog="bankapp">
+        <id name="detailsId" type="Long">
+            <column name="DetailsId" />
+            <generator class="assigned" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="First_Name" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="Last_Name" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="Mobile" length="25" />
+        </property>
+        <property name="emailId" type="string">
+            <column name="EmailId" />
+        </property>
+        <property name="picture" type="binary">
+            <column name="Picture" />
+        </property>
+        <property name="signature" type="binary">
+            <column name="Signature" />
+        </property>
+        <property name="accountType" type="string">
+            <column name="AccountType" length="25" />
+        </property>
+        <property name="minimumBalance" type="java.lang.Double">
+            <column name="MinimumBalance" precision="22" scale="0" />
+        </property>
+        <property name="addressId" type="java.lang.Long">
+            <column name="AddressID" />
+        </property>
+        <property name="parentName" type="string">
+            <column name="ParentName" />
+        </property>
+        <property name="designation" type="string">
+            <column name="Designation" />
+        </property>
+    </class>
+</hibernate-mapping>
