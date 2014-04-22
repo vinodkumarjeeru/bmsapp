@@ -15,6 +15,9 @@ public class Details implements java.io.Serializable {
     private byte[] signature;
     private String accountType;
     private Double minimumBalance;
+
+    public Details() {
+    }
     private Address addressId;
     private String parentName;
     private String designation;
