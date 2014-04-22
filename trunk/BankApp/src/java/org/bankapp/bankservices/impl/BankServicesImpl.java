@@ -1,31 +1,61 @@
 package org.bankapp.bankservices.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.bankapp.bankservices.BankServices;
-import org.bankapp.domain.Bankuser1;
+import org.bankapp.domain.Customer;
+import org.bankapp.utils.HibernateUtils;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class BankServicesImpl implements BankServices {
 
-    private static List<Bankuser1> list = new ArrayList<Bankuser1>();
+    private Session session = null;
+    private Transaction transaction = null;
 
-    public void createAccount(Bankuser1 bankuser1) {
-        list.add(bankuser1);
+    private static BankServicesImpl IMPL = new BankServicesImpl();
+    
+    public BankServicesImpl() {
     }
 
-    public void deleteAccount(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void createAccount(Customer customer) {
+        session = HibernateUtils.currentSession();
+        transaction = session.beginTransaction();
+        session.save(customer);
+        transaction.commit();
+        session.close();
+
     }
 
-    public void changeAccountDetails(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteAccount(Customer customer) {
+        session = HibernateUtils.currentSession();
+        transaction = session.beginTransaction();
+        session.delete(customer);
+        transaction.commit();
+        session.close();
     }
 
-    public void createDebitCard(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void changeAccountDetails(Customer customer) {
+        session = HibernateUtils.currentSession();
+        transaction = session.beginTransaction();
+        session.merge(customer);
+        transaction.commit();
+        session.close();
     }
 
-    public void createCreditCard(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void createDebitCard(Customer customer) {
+        // TODO
+    }
+
+    public void createCreditCard(Customer customer) {
+        // TODO
+    }
+
+    public List<Customer> retrieveList() {
+        session = HibernateUtils.currentSession();
+        Query query = session.createQuery("from Customer");
+        List<Customer> list = query.list();
+        session.close();
+        return list;
     }
 }
