@@ -8,11 +8,11 @@ public class Bankuser implements java.io.Serializable {
 
     private Long userId;
     private String password;
-    private Byte[] secretKey;
+    private byte[] secretKey;
     private String oldPassword;
     private String role;
 
-    public Bankuser(Long userId, String password, Byte[] secretKey, String oldPassword, String role) {
+    public Bankuser(Long userId, String password, byte[] secretKey, String oldPassword, String role) {
         this.userId = userId;
         this.password = password;
         this.secretKey = secretKey;
@@ -47,11 +47,11 @@ public class Bankuser implements java.io.Serializable {
         this.password = password;
     }
 
-    public Byte[] getSecretKey() {
+    public byte[] getSecretKey() {
         return secretKey;
     }
 
-    public void setSecretKey(Byte[] secretKey) {
+    public void setSecretKey(byte[] secretKey) {
         this.secretKey = secretKey;
     }
 
