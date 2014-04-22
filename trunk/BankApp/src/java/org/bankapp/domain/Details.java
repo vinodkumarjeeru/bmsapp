@@ -11,6 +11,8 @@ public class Details implements java.io.Serializable {
     private String lastName;
     private String mobile;
     private String emailId;
+    private String parentName;
+    private String designation;
     private byte[] picture;
     private byte[] signature;
     private byte[] documents;
@@ -19,14 +21,20 @@ public class Details implements java.io.Serializable {
     private String securityAnswer;
     private String DateOfBirth;
     private Double minimumBalance;
+    private Address addressId;
 
-    public Details(Long detailsId, String firstName, String lastName, String mobile, String emailId, byte[] picture, byte[] signature, byte[] documents, String accountType, String securityQuestion, String securityAnswer, String DateOfBirth, Double minimumBalance) {
+    public Details() {
+    }
+
+    public Details(Long detailsId, String firstName, String lastName, String mobile, String parentName, String emailId, String designation, byte[] picture, byte[] signature, byte[] documents, String accountType, String securityQuestion, String securityAnswer, String DateOfBirth, Double minimumBalance, Address addressId) {
         this.detailsId = detailsId;
         this.firstName = firstName;
+        this.designation = designation;
         this.lastName = lastName;
         this.mobile = mobile;
         this.emailId = emailId;
         this.picture = picture;
+        this.parentName = parentName;
         this.signature = signature;
         this.documents = documents;
         this.accountType = accountType;
@@ -34,17 +42,27 @@ public class Details implements java.io.Serializable {
         this.securityAnswer = securityAnswer;
         this.DateOfBirth = DateOfBirth;
         this.minimumBalance = minimumBalance;
+        this.addressId = addressId;
     }
 
-    public Details(Long detailsId) {
-        this.detailsId = detailsId;
+    public String getParentName() {
+        return parentName;
     }
 
-    public Details() {
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
     }
 
     public Long getDetailsId() {
         return detailsId;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
     }
 
     public void setDetailsId(Long detailsId) {
@@ -147,10 +165,18 @@ public class Details implements java.io.Serializable {
         this.minimumBalance = minimumBalance;
     }
 
+    public Address getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Address addressId) {
+        this.addressId = addressId;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + (this.detailsId != null ? this.detailsId.hashCode() : 0);
+        int hash = 5;
+        hash = 83 * hash + (this.detailsId != null ? this.detailsId.hashCode() : 0);
         return hash;
     }
 
@@ -168,11 +194,4 @@ public class Details implements java.io.Serializable {
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Details{" + "detailsId=" + detailsId + ", firstName=" + firstName + ", lastName=" + lastName + ", mobile=" + mobile + ", emailId=" + emailId + ", picture=" + picture + ", signature=" + signature + ", documents=" + documents + ", accountType=" + accountType + ", securityQuestion=" + securityQuestion + ", securityAnswer=" + securityAnswer + ", DateOfBirth=" + DateOfBirth + ", minimumBalance=" + minimumBalance + '}';
-    }
-    
-    
 }
