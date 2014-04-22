@@ -25,18 +25,21 @@ and open the template in the editor.
 
                 $('#accountantForm').submit(function() {
                     var status = true;
+                    var accountType = $('#account').val();
                     var firstName = $('#firstName').val();
                     var lastName = $('#lastName').val();
-                    var parentName= $('#parentNameDiv').val();           
+                    var parentName = $('#parentName').val();
                     var designation = $('#designation').val();
                     var dateOfBirth = $('#dateOfBirth').val();
-                    var doorNo = $('#doorNo').val();
-                    var accountType = $('#account').val();
-                    var streetName = $('#streetName').val();
-                    var stateName = $('#stateName').val();
                     var phNo = $('#phNo').val();
                     var email = $('#email').val();
+                    var securityQuestion = $('#securityQuestion').val();
+                    var answer = $('#answer').val();
+                    var doorNo = $('#doorNo').val();
+                    var streetName = $('#streetName').val();
                     var city = $('#city').val();
+                    var districtName = $('#districtName').val();
+                    var stateName = $('#stateName').val();
                     var country = $('#country').val();
                     var pinCode = $('#pinCode').val();
                     var image = $('#image').val();
@@ -76,7 +79,15 @@ and open the template in the editor.
                         status = false;
                     } else {
                         $('#lastNameDiv').removeClass('has-error');
-                    }  
+                    }
+
+                    if (parentName.length == 0 || parentName == null) {
+                        $('#parentNameDiv').addClass('has-error');
+                        status = false;
+                    } else {
+                        $('#parentNameDiv').removeClass('has-error');
+                    }
+
                     if (designation.length == 0 || designation == null || designation == 'Select Your Option') {
                         $('#designationDiv').addClass('has-error');
                         status = false;
@@ -84,11 +95,40 @@ and open the template in the editor.
                         $('#designationDiv').removeClass('has-error');
                     }
                     if (dateOfBirth.length == 0 || dateOfBirth == null) {
-                        $('#dateOfBirthDiv').addClass('has-error');
+                        $('#dateofBirthDiv').addClass('has-error');
                         status = false;
                     } else {
-                        $('#dateOfBirthDiv').removeClass('has-error');
+                        $('#dateofBirthDiv').removeClass('has-error');
                     }
+
+                    if (phNo.length == 0 || phNo == null) {
+                        $('#phNoDiv').addClass('has-error');
+                        status = false;
+                    } else {
+                        $('#phNoDiv').removeClass('has-error');
+                    }
+
+                    if (email.length == 0 || email == null) {
+                        $('#emailDiv').addClass('has-error');
+                        status = false;
+                    } else {
+                        $('#emailDiv').removeClass('has-error');
+                    }
+
+                    if (securityQuestion.length == 0 || securityQuestion == null || securityQuestion == 'Select Your Option') {
+                        $('#securityQuestionDiv').addClass('has-error');
+                        status = false;
+                    } else {
+                        $('#securityQuestionDiv').removeClass('has-error');
+                    }
+                    
+                    if (answer.length == 0 || answer == null) {
+                        $('#answerDiv').addClass('has-error');
+                        status = false;
+                    } else {
+                        $('#answerDiv').removeClass('has-error');
+                    }
+
                     if (doorNo.length == 0 || doorNo == null) {
                         $('#doorNoDiv').addClass('has-error');
                         status = false;
@@ -101,30 +141,30 @@ and open the template in the editor.
                     } else {
                         $('#streetNameDiv').removeClass('has-error');
                     }
-                    if (stateName.length == 0 || stateName == null) {
-                        $('#stateNameDiv').addClass('has-error');
-                        status = false;
-                    } else {
-                        $('#stateNameDiv').removeClass('has-error');
-                    }
-                    if (phNo.length == 0 || phNo == null) {
-                        $('#phNoDiv').addClass('has-error');
-                        status = false;
-                    } else {
-                        $('#phNoDiv').removeClass('has-error');
-                    }
-                    if (email.length == 0 || email == null) {
-                        $('#emailDiv').addClass('has-error');
-                        status = false;
-                    } else {
-                        $('#emailDiv').removeClass('has-error');
-                    }
+                    
                     if (city.length == 0 || city == null) {
                         $('#cityDiv').addClass('has-error');
                         status = false;
                     } else {
                         $('#cityDiv').removeClass('has-error');
                     }
+                    
+                    if (districtName.length == 0 || districtName == null) {
+                        $('#districtNameDiv').addClass('has-error');
+                        status = false;
+                    } else {
+                        $('#districtNameDiv').removeClass('has-error');
+                    }
+                    
+                    if (stateName.length == 0 || stateName == null) {
+                        $('#stateNameDiv').addClass('has-error');
+                        status = false;
+                    } else {
+                        $('#stateNameDiv').removeClass('has-error');
+                    }
+
+
+                    
                     if (country.length == 0 || country == null) {
                         $('#countryDiv').addClass('has-error');
                         status = false;
@@ -217,6 +257,9 @@ and open the template in the editor.
                             <label class="control-label">Father/Mother Name</label>
                             <input type="text" name="parentName" class="form-control" id="parentName"/>
                         </div>
+
+
+
                         <div class="form-group" id="designationDiv">
                             <label class="control-label" >Designation</label>
                             <select class="form-control" name="Designation" id="designation" >
@@ -228,10 +271,10 @@ and open the template in the editor.
                                 <option>Senior Citizens</option>
                             </select>
                         </div>
-                      
-                        <div class="form-group" id="dateofBirth">
+
+                        <div class="form-group" id="dateofBirthDiv">
                             <label class="control-label">Date of Birth</label>
-                            <input type="text" placeholder="DD-MM-YYYY" class="form-control" name="dateofBirth"id="dateOfBirth" />
+                            <input type="text" placeholder="DD-MM-YYYY" class="form-control" name="dateofBirth" id="dateOfBirth" />
                         </div>
 
                         <div class="form-group" id="phNoDiv">
@@ -243,26 +286,26 @@ and open the template in the editor.
                             <label class="control-label">Email</label>
                             <input type="email" name="email" class="form-control" id="email"/>
                         </div>
-                        <div class="form-group" id="securityQuestion">
+                        <div class="form-group" id="securityQuestionDiv">
                             <label class="control-label" >Security Question</label>
-                            <select class="form-control" name="SecQuestion" id="secQuestion" >
+                            <select class="form-control" name="SecQuestion" id="securityQuestion" >
                                 <option>Select Your Option</option>
                                 <option>What is your birthplace</option>
                                 <option>What is your nickname</option>
                                 <option>Who is your favourite classTeacher</option>
                                 <option>What is your close Friend's name</option>
-                              </select>
+                            </select>
                         </div>  
-                        
-                        <div class="form-group" id="answer">
+
+                        <div class="form-group" id="answerDiv">
                             <label class="control-label">Answer</label>
                             <input type="text"  class="form-control" name="answer"id="answer" />
                         </div>
 
                         <div class="form-group" id="genderDiv">
-                            <label class="control-label" >Gender:</label><br/>
-                            &nbsp;&nbsp;&nbsp;<input type="radio" class="radio radio-inline" name="gender" id="gender" value="Male"/>Male
-                            <input type="radio" class="radio radio-inline" name="gender" value="Female"/>Female
+                                <label class="control-label" >Gender:</label><br/>
+                                <input type="radio" name="myoptions[]" value="blue">Male
+                                <input type="radio" class="radio radio-inline" name="gender"/>Female
                         </div>
 
                         <div class="form-group" id="statusDiv">
@@ -304,7 +347,7 @@ and open the template in the editor.
                             <label class="control-label">Pin code</label>
                             <input type="text" name="pincode" class="form-control" id="pinCode"/>
                         </div>
-                        
+
                         <div class="form-group" id="imageDiv">
                             <label>Upload Image</label>
                             <input type="file" name="profilepic" class="form-control" id="image"/> 
@@ -334,7 +377,7 @@ and open the template in the editor.
                         %>
                         <h6> <b><%=(request.getAttribute("Msg"))%></b></h6>
                         <% }%>
-                            
+
                         </form>
                     </div>
                 </div>
