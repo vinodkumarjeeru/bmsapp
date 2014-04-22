@@ -50,6 +50,7 @@ and open the template in the editor.
                     }
 
                     var dateOfBirth = $('#dateOfBirth').val();
+                    alert(dateOfBirth);
                     if (dateOfBirth.length == 0 || dateOfBirth == null) {
                         $('#dateOfBirthDiv').addClass('has-error');
                         status = false;
@@ -97,11 +98,23 @@ and open the template in the editor.
                     } else {
                         $('#imageDiv').removeClass('has-error');
                     }
-                    if(status == false){
+                    if (status == false) {
                         return false;
                     }
-                     $('#gender').attr('checked', 'checked');
+                    $('#gender').attr('checked', 'checked');
                 });
+
+                $('#dateOfBirth').blur(function() {
+                    var past = new Date($('#dateOfBirth').val());
+                    var now = new Date();
+                    var pastYear = past.getFullYear();
+                    var nowYear = now.getFullYear();
+                    var age = nowYear - pastYear;
+                    $('#age').focus(function() {
+                        $('#age').val(age);
+                    });
+                });
+
             });
         </script>
 
@@ -148,12 +161,12 @@ and open the template in the editor.
 
                             <div class="form-group" id="dateOfBirthDiv">
                                 <label class="control-label">Date Of Birth</label>
-                                <input type="text" placeholder="DD-MM-YYYY" class="form-control" id="dateOfBirth" name="dob"/>
+                                <input type="text" placeholder="YYYY-MM-DD" class="form-control" id="dateOfBirth" name="dob"/>
                             </div>
 
                             <div class="form-group" id="ageDiv">
                                 <label class="control-label">Age</label>
-                                <input type="text" readonly="readonly" class="form-control" value="5" id="age" name="age"/>
+                                <input type="text" readonly="readonly" class="form-control" id="age" name="age"/>
                             </div>
 
                             <div class="form-group" id="genderDiv">
@@ -187,6 +200,10 @@ and open the template in the editor.
                             <div class="form-group" id="answerDiv">
                                 <label class="control-label">Answer</label>
                                 <input type="text" name="answer" class="form-control" id="answer"/>
+                            </div>
+                            <div class="form-group" id="formDiv">
+                                <label class="control-label">Role</label>
+                                <input type="text" name="role" class="form-control" id="formText" readonly="readonly" value="Clerk"/>
                             </div>
 
                             <br/>
