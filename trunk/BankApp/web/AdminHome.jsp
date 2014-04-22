@@ -1,6 +1,7 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,7 +37,7 @@
                 position: relative;
                 top: 0px;
                 width: 160px;
-                 
+
             }
             #LoginDiv {
 
@@ -47,10 +48,6 @@
                 width: 160px;
 
             }
-
-
-
-
             #Design{
                 position: relative;
                 width: 400px;
@@ -63,47 +60,58 @@
         <title>WELCOME ADMINISTRATOR FORM</title>
     </head>
     <body>
-        <h2 align='center'>WELCOME ADMINISTRATOR</h2>
-        <br>
+    <c:if test="${not empty BankUser}">
 
-        <div class ="form-group">
-            <div class ="well  well-lg" id="Design" >
-                <form id="loginForm">
+        <div>
 
-                    <div id="Registrationdiv">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"><font color="blue">CLERK MANAGEMENT</font><b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="clerkRegistration.jsp">Add</a></li>
-                            <li><a href="#">Edit</a></li>
-                            <li><a href="#">Delete</a></li>
-                        </ul>
+            <h2 align="center">WELCOME <c:out value="${BankUser}"/> 
+                <span align="right" class="right close"><a href="#" class="btn btn-danger">Logout</a></span>
+            </h2>
+                
+        </div>
 
 
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
+    </c:if>
+    <br>
+
+    <div class ="form-group">
+        <div class ="well  well-lg" id="Design" >
+            <form id="loginForm">
+
+                <div id="Registrationdiv">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><font color="blue">CLERK MANAGEMENT</font><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="clerkRegistration.jsp">Add</a></li>
+                        <li><a href="#">Edit</a></li>
+                        <li><a href="#">Delete</a></li>
+                    </ul>
 
 
-                                <div id="LoginDiv">
-
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><font color="blue">USER MANAGEMENT</font><b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Add</a></li>
-                                        <li><a href="#">Edit</a></li>
-                                        <li><a href="#">Delete</a></li>
-
-                                    </ul>    
-                                </div>
-                            </li>
-                        </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
 
 
-                    </div>
+                            <div id="LoginDiv">
 
-                </form>
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle"><font color="blue">USER MANAGEMENT</font><b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Add</a></li>
+                                    <li><a href="#">Edit</a></li>
+                                    <li><a href="#">Delete</a></li>
+
+                                </ul>    
+                            </div>
+                        </li>
+                    </ul>
 
 
-            </div>
+                </div>
+
+            </form>
+
 
         </div>
-    </body>
+
+    </div>
+</body>
 </html>
