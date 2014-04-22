@@ -6,7 +6,11 @@ package org.bankapp.web.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -145,6 +149,9 @@ public class AccountCreationController extends RootServlet {
             details.setLastName(lName);
             details.setParentName(parentname);
             details.setDesignation(desgn);
+            SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-dd");
+            Date d = format.parse(dob);
+            dob = format.format(d);
             details.setDateOfBirth(dob);
             details.setMobile(pNo);
             details.setEmailId(eml);
@@ -178,6 +185,8 @@ public class AccountCreationController extends RootServlet {
             
         } catch (FileUploadException ex) {
             System.out.println(ex.getMessage());
+        } catch (ParseException ex) {
+            java.util.logging.Logger.getLogger(AccountCreationController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
