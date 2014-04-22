@@ -27,6 +27,7 @@ import org.bankapp.domain.Balance;
 import org.bankapp.domain.Bankuser;
 import org.bankapp.domain.Customer;
 import org.bankapp.domain.Details;
+import org.bankapp.utils.BankServiceUtils;
 import org.bankapp.web.utils.RandomGenerator;
 import org.bankapp.web.utils.RootServlet;
 
@@ -176,7 +177,7 @@ public class AccountCreationController extends RootServlet {
             customer.setUserId(user);
             LOG.debug("After Customer creattion");
             LOG.debug("Befor service creattion");
-            BankServices service = new BankServicesImpl();
+            BankServices service = BankServiceUtils.getInstance();
             service.createAccount(customer);
             LOG.debug("FIANALLLLLLLL ");
             request.setAttribute("Msg", "Account created");
