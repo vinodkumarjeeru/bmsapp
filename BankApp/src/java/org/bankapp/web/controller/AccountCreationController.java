@@ -35,61 +35,89 @@ public class AccountCreationController extends RootServlet {
         ServletFileUpload upload = new ServletFileUpload(factory);
         try {
             List<FileItem> list = upload.parseRequest(request);
-            FileItem firstName = list.get(0);
-            String fName = firstName.getString();
-
-            FileItem lastName = list.get(1);
-            String lName = lastName.getString();
-
-            FileItem Designation = list.get(2);
+            
+            FileItem AccountType = list.get(0);
+            String accType = AccountType.getString();
+            
+            
+            FileItem MinimumBalance=list.get(1);
+            String minBalance=MinimumBalance.getString();
+            
+            
+            FileItem FirstName=list.get(2);
+            String fName=FirstName.getString();
+           
+            
+            FileItem LastName=list.get(3);
+            String lName=LastName.getString();
+           
+            
+            FileItem parentName=list.get(4);
+            String parentname=parentName.getString();
+          
+            
+            FileItem Designation = list.get(5);
             String desgn = Designation.getString();
-
-            FileItem dateofBirth = list.get(3);
+            
+            
+            FileItem dateofBirth = list.get(6);
             String dob = dateofBirth.getString();
-
-            FileItem gender = list.get(4);
+            
+           
+            FileItem phoneNo = list.get(7);
+            String pNo = phoneNo.getString();
+            
+            FileItem email = list.get(8);
+            String eml = email.getString();
+         
+            FileItem SecQuestion = list.get(9);
+            String secQuest = SecQuestion.getString();
+           
+             FileItem answer = list.get(10);
+            String ansr = answer.getString();
+            
+            FileItem gender = list.get(11);
             String gndr = gender.getString();
-
-            FileItem status = list.get(5);
+            
+            FileItem status = list.get(12);
             String sts = status.getString();
 
-            FileItem doorNo = list.get(6);
+            FileItem doorNo = list.get(13);
             String dNo = doorNo.getString();
 
-            FileItem streetName = list.get(7);
+            FileItem streetName = list.get(14);
             String stName = streetName.getString();
-
-            FileItem stateName = list.get(8);
+           
+            FileItem city = list.get(15);
+            String cty = city.getString();
+            
+            FileItem districtName = list.get(16);
+            String distName = districtName.getString();
+            
+            FileItem stateName = list.get(17);
             String statName = stateName.getString();
 
-            FileItem phoneNo = list.get(9);
-            String pNo = phoneNo.getString();
-
-            FileItem email = list.get(10);
-            String eml = email.getString();
-
-            FileItem city = list.get(11);
-            String cty = city.getString();
-
-            FileItem country = list.get(12);
+            FileItem country = list.get(18);
             String ctry = country.getString();
 
-            FileItem pincode = list.get(13);
+            FileItem pincode = list.get(19);
             String pcode = pincode.getString();
 
-            FileItem profilepic = list.get(14);
-            InputStream pfpic = profilepic.getInputStream();
+            FileItem profilepic = list.get(20);
+            byte[] pfpic = profilepic.get();
+          
 
-            FileItem thumbPrint = list.get(15);
-            InputStream tPrint = thumbPrint.getInputStream();
+            FileItem thumbPrint = list.get(21);
+            byte[] thmbpt = thumbPrint.get();
 
-            FileItem proof = list.get(16);
-            InputStream addressProof = proof.getInputStream();
+            FileItem proof = list.get(22);
+             byte[] addressProof = proof.get();
 
-            LOG.debug(addressProof.available());
+            LOG.debug(addressProof.length);
             request.setAttribute("Msg", "Account created");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/accountantcreation.jsp");
+           RequestDispatcher dispatcher = request.getRequestDispatcher("/accountcreation.jsp");
             dispatcher.forward(request, response);
+            
         } catch (FileUploadException ex) {
             System.out.println(ex.getMessage());
         }
