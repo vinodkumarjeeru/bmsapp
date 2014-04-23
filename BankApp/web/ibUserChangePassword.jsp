@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -49,10 +50,6 @@
                     } else {
                         $('#confirmpswddiv').removeClass('has-error');
                     }
-                    
-                    
-                    
-
 
                     if (status == false) {
                         return false;
@@ -64,7 +61,6 @@
 
         </script>
         <style type="text/css">
-
 
             #well{
                 position:relative;
@@ -87,7 +83,7 @@
             <div class="well well-sm" id="well">
                 <div class="panel panel-heading" id="header"><h3 align="center">IB User Change Password</h3></div>
                 <div class="panel panel-body">
-                    <form id="ibuserchangepassword">
+                    <form id="ibuserchangepassword" method="POST" action="${pageContext.request.contextPath}/ibchangepassword">
 
                         <div class="form-group"id="accountNumberdiv">
                             <label>Account Number</label>
@@ -114,6 +110,14 @@
                         </div>
 
                     </form>
+                    <%
+                        if( request.getAttribute("msg")!=null){
+                            
+                      %>
+                        <h6><%=request.getAttribute("msg")%></h6>
+                        <%
+                        }
+                            %>
                 </div>
             </div>
         </div>
