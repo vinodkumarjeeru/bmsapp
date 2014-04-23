@@ -82,8 +82,8 @@
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle"><font color="blue">CLERK MANAGEMENT</font><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="clerkRegistration.jsp">Add</a></li>
-                        <li><a href="#">Edit</a></li>
-                        <li><a href="#">Delete</a></li>
+                        <li><a href="List.jsp?name=clerk">Edit</a></li>
+                        
                     </ul>
 
 
@@ -95,9 +95,9 @@
 
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle"><font color="blue">USER MANAGEMENT</font><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Add</a></li>
-                                    <li><a href="#">Edit</a></li>
-                                    <li><a href="#">Delete</a></li>
+                                    <li><a href="accountcreation.jsp">Add</a></li>
+                                    <li><a href="List.jsp?name=user">Edit</a></li>
+                                    
 
                                 </ul>    
                             </div>
