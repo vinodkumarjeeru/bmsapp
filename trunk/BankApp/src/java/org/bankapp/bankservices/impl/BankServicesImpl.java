@@ -81,4 +81,14 @@ public class BankServicesImpl implements BankServices {
         balance = (Balance) q.uniqueResult();
         return balance;
     }
+
+    public void changeAccountDetails(Bankuser bankuser) {
+        session.merge(bankuser);
+        transaction.commit();
+    }
+
+    public void changeAccountDetails(Balance balance) {
+        session.merge(balance);
+        transaction.commit();
+    }
 }

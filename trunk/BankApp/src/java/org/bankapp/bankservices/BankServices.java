@@ -12,6 +12,10 @@ public interface BankServices {
     public void deleteAccount(Customer customer);
 
     public void changeAccountDetails(Customer customer);
+    
+    public void changeAccountDetails(Bankuser bankuser);
+    
+    public void changeAccountDetails(Balance balance);
 
     public void createDebitCard(Customer customer);
 
