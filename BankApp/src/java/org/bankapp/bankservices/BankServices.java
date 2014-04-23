@@ -19,4 +19,6 @@ public interface BankServices {
     public Customer getCustomerById(Long id);
 
     public List<Customer> retrieveList();
+    
+    public Bankuser getBankUserById(Long userId);
 }
