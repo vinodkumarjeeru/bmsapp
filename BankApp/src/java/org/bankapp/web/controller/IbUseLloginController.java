@@ -29,7 +29,7 @@ public class IbUseLloginController extends RootServlet {
         out.println(vCode);
         String password = request.getParameter("password");
         out.println(password);
-
+           
 
     }
 }
