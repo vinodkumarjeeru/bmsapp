@@ -72,6 +72,16 @@
         <servlet-name>AdminClerkLoginController</servlet-name>
         <url-pattern>/adcllogin</url-pattern> 
     </servlet-mapping>
+    <servlet>
+        <servlet-name>IbChangePasswordController</servlet-name>
+        <servlet-class>org.bankapp.web.controller.IbChangePasswordController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>IbChangePasswordController</servlet-name>
+        <url-pattern>/ibchangepassword</url-pattern>
+</servlet-mapping>
+    
     
     <session-config>
         <session-timeout>30</session-timeout>
