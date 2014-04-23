@@ -65,7 +65,7 @@
         <div>
 
             <h2 align="center">WELCOME <c:out value="${BankUser}"/> 
-                <span align="right" class="right close"><a href="#" class="btn btn-danger">Logout</a></span>
+                <span align="right" class="right close"><a href="LogOutController" class="btn btn-danger">Logout</a></span>
             </h2>
                 
         </div>
