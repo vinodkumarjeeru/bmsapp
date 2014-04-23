@@ -24,23 +24,27 @@ public class BankServicesImpl implements BankServices {
     }
 
     public void createAccount(Customer customer) {
+        beginTrans();
         session.save(customer);
         transaction.commit();
+
 
 
     }
 
     public void deleteAccount(Customer customer) {
-
+        beginTrans();
         session.delete(customer);
         transaction.commit();
+
 
     }
 
     public void changeAccountDetails(Customer customer) {
-
+        beginTrans();
         session.merge(customer);
         transaction.commit();
+
     }
 
     public void createDebitCard(Customer customer) {
@@ -83,12 +87,18 @@ public class BankServicesImpl implements BankServices {
     }
 
     public void changeAccountDetails(Bankuser bankuser) {
+        beginTrans();
         session.merge(bankuser);
         transaction.commit();
     }
 
     public void changeAccountDetails(Balance balance) {
+        beginTrans();
         session.merge(balance);
         transaction.commit();
+    }
+
+    private void beginTrans() {
+        transaction.begin();
     }
 }
