@@ -150,7 +150,7 @@ public class AccountCreationController extends RootServlet {
             details.setLastName(lName);
             details.setParentName(parentname);
             details.setDesignation(desgn);
-            SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             Date d = format.parse(dob);
             dob = format.format(d);
             details.setDateOfBirth(dob);
@@ -161,6 +161,7 @@ public class AccountCreationController extends RootServlet {
             details.setAddressId(address);
             details.setPicture(pfpic);
             details.setSignature(thmbpt);
+            details.setDocuments(addressProof);
             
             LOG.debug("After Details creattion");
             balance.setAccountId(RandomGenerator.generateAccountId());
