@@ -2,6 +2,7 @@ package org.bankapp.bankservices.impl;
 
 import java.util.List;
 import org.bankapp.bankservices.BankServices;
+import org.bankapp.domain.Bankuser;
 import org.bankapp.domain.Customer;
 import org.bankapp.utils.HibernateUtils;
 import org.hibernate.Query;
@@ -11,7 +12,6 @@ import org.hibernate.Transaction;
 public class BankServicesImpl implements BankServices {
 
     private Session session = HibernateUtils.currentSession();
-    
     private Transaction transaction = session.beginTransaction();
     private static BankServicesImpl IMPL = new BankServicesImpl();
 
@@ -63,5 +63,13 @@ public class BankServicesImpl implements BankServices {
         q.setParameter("customerId", new Long(id));
         Customer c = (Customer) q.uniqueResult();
         return c;
+    }
+
+    public Bankuser getBankUserById(Long userId) {
+        Bankuser bankuser = null;
+        Query q = session.createQuery("from Bankuser bankUser where bankUser.userId=:userId");
+        q.setParameter("userId", new Long(userId));
+        bankuser = (Bankuser) q.uniqueResult();
+        return bankuser;
     }
 }
