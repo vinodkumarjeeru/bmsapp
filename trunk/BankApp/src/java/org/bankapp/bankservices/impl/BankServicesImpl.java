@@ -2,6 +2,7 @@ package org.bankapp.bankservices.impl;
 
 import java.util.List;
 import org.bankapp.bankservices.BankServices;
+import org.bankapp.domain.Balance;
 import org.bankapp.domain.Bankuser;
 import org.bankapp.domain.Customer;
 import org.bankapp.utils.HibernateUtils;
@@ -71,5 +72,13 @@ public class BankServicesImpl implements BankServices {
         q.setParameter("userId", new Long(userId));
         bankuser = (Bankuser) q.uniqueResult();
         return bankuser;
+    }
+
+    public Balance getBalanceByAcctId(Long accountId) {
+        Balance balance = null;
+        Query q = session.createQuery("from Balance balance where balance.accountId=:acctId");
+        q.setParameter("acctId", new Long(accountId));
+        balance = (Balance) q.uniqueResult();
+        return balance;
     }
 }
