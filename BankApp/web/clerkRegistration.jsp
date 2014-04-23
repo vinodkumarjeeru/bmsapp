@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<<!--
+<!--
 To change this template, choose Tools | Templates
 and open the template in the editor.
 -->
@@ -127,11 +127,13 @@ and open the template in the editor.
         <title>APP | CLERK</title>
 
     </head>
+
+
     <body>
 
         <div class="container">
             <div class="jumbotron" id="clerkcreationDiv">
-                <h2 align="center" class='bg-primary'>CLERK CREATION</h2>
+                <h2 align="center" class="bg-primary"> CLERK CREATION </h2>
             </div>
 
             <div class="well well-lg">
@@ -206,7 +208,7 @@ and open the template in the editor.
                                 <input type="text" name="role" class="form-control" id="formText" readonly="readonly" value="Clerk"/>
                             </div>
 
-                            <br/>
+                            <br>
 
                             <div class="form-group" id="imageDiv">
                                 <label class="control-label">Upload Image</label>
@@ -227,10 +229,6 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-
-
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </body>  
 </html>
 
