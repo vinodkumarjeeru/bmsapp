@@ -279,7 +279,7 @@ and open the template in the editor.
 
                               <div class="form-group" id="dateofBirthDiv">
                                    <label class="control-label">Date of Birth</label>
-                                   <input type="text" placeholder="DD-MM-YYYY" class="form-control" name="dateofBirth" id="dateOfBirth" />
+                                   <input type="text" placeholder="YYYY-MM-DD" class="form-control" name="dateofBirth" id="dateOfBirth" />
                               </div>
 
                               <div class="form-group" id="phNoDiv">
