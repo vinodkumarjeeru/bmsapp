@@ -60,58 +60,58 @@
         <title>WELCOME ADMINISTRATOR FORM</title>
     </head>
     <body>
-    <c:if test="${not empty BankUser}">
+        <c:if test="${not empty BankUser}">
 
-        <div>
+            <div>
 
-            <h2 align="center">WELCOME <c:out value="${BankUser}"/> 
-                <span align="right" class="right close"><a href="LogOutController" class="btn btn-danger">Logout</a></span>
-            </h2>
-                
+                <h2 align="center">WELCOME <c:out value="${BankUser}"/> 
+                    <span align="right" class="right close"><a href="LogOutController" class="btn btn-danger">Logout</a></span>
+                </h2>
+
+            </div>
+
+
+        </c:if>
+        <br>
+
+        <div class ="form-group">
+            <div class ="well  well-lg" id="Design" >
+                <form id="loginForm">
+
+                    <div id="Registrationdiv">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"><font color="blue">CLERK MANAGEMENT</font><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="clerkRegistration.jsp">Add</a></li>
+                            <li><a href="${pageContext.request.contextPath}/list">Edit</a></li>
+
+                        </ul>
+
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+
+
+                                <div id="LoginDiv">
+
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><font color="blue">USER MANAGEMENT</font><b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="accountcreation.jsp">Add</a></li>
+                                        <li><a href="List.jsp?name=user">Edit</a></li>
+
+
+                                    </ul>    
+                                </div>
+                            </li>
+                        </ul>
+
+
+                    </div>
+
+                </form>
+
+
+            </div>
+
         </div>
-
-
-    </c:if>
-    <br>
-
-    <div class ="form-group">
-        <div class ="well  well-lg" id="Design" >
-            <form id="loginForm">
-
-                <div id="Registrationdiv">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><font color="blue">CLERK MANAGEMENT</font><b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="clerkRegistration.jsp">Add</a></li>
-                        <li><a href="List.jsp?name=clerk">Edit</a></li>
-                        
-                    </ul>
-
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-
-
-                            <div id="LoginDiv">
-
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle"><font color="blue">USER MANAGEMENT</font><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="accountcreation.jsp">Add</a></li>
-                                    <li><a href="List.jsp?name=user">Edit</a></li>
-                                    
-
-                                </ul>    
-                            </div>
-                        </li>
-                    </ul>
-
-
-                </div>
-
-            </form>
-
-
-        </div>
-
-    </div>
-</body>
+    </body>
 </html>
