@@ -35,4 +35,6 @@ public interface BankServices {
     public String depositMoney(Long accountId, Double amount);
 
     public Details getDetails(Long accountId);
+
+    public void forgetPassword(Long accountNumber);
 }

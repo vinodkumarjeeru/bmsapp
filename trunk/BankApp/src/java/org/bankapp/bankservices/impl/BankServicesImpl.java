@@ -1,12 +1,15 @@
 package org.bankapp.bankservices.impl;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.bankapp.bankservices.BankServices;
 import org.bankapp.domain.Balance;
 import org.bankapp.domain.Bankuser;
 import org.bankapp.domain.Customer;
 import org.bankapp.domain.Details;
 import org.bankapp.utils.HibernateUtils;
+import org.bankapp.web.utils.MailUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -149,5 +152,25 @@ public class BankServicesImpl implements BankServices {
             details = c.getDetaildId();
         }
         return details;
+    }
+
+    private void sendPasswordMail(String eMail, Customer customer) {
+        try {
+            MailUtils.mail(eMail, customer);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void forgetPassword(Long accountNumber) {
+        String mailId = null;
+        Balance balance = getBalanceByAcctId(accountNumber);
+        if (balance != null) {
+            Query q = session.createQuery("from Customer c where c.accountId=:acctId");
+            q.setParameter("acctId", balance);
+            Customer customer = (Customer) q.uniqueResult();
+            mailId = customer.getDetaildId().getEmailId();
+            sendPasswordMail(mailId, customer);
+        }
     }
 }
