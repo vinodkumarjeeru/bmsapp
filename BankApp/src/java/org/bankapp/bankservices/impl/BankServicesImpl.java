@@ -104,18 +104,20 @@ public class BankServicesImpl implements BankServices {
     }
 
     public String withdrawMoney(Long accountId, Double amount) {
+
+        //Customer c = new Customer();
         beginTrans();
         String status = null;
         Balance balance = getBalanceByAcctId(accountId);
         if (balance != null) {
-            Query q = session.createQuery("from Customer c where c.accountId=:acctId");
-            q.setParameter("acctId", accountId);
+            Query q = session.createQuery("from Customer customer where customer.accountId=:accountId");
+            q.setParameter("accountId", balance);
             Customer c = (Customer) q.uniqueResult();
             Double minBal = c.getDetaildId().getMinimumBalance();
             if ((balance.getBalance() - amount) < minBal) {
                 status = "Low Balance";
             } else {
-                balance.setBalance(balance.getBalance() - amount);
+                balance.setBalance((balance.getBalance()) - amount);
                 session.merge(balance);
                 transaction.commit();
                 status = "Withdrawn";
