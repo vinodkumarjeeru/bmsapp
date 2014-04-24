@@ -153,12 +153,21 @@
 
 
                         <form class="form-group" id="depositid" method="POST" action="${pageContext.request.contextPath}/depositAmount"> 
+                             <%
+                                if(request.getAttribute("msg")!=null){
+                                    
+                                
+                                %>
+                                <h4 align="center"><font color="green"><%=(request.getAttribute("msg")) %></font></h4>
+                                <%
+                                }
+                                %>
                             <table class="table table-bordered table-responsive table-condensed"  name="table1">
                                 <tr>
                                     <td><label>Payment Voucher Number</label></td>
                                     <td id="payData"><input type="text" class="form-control" name="payvocher" id="PVN"  ></td>
                                     <td><label>Date</label></td>
-                                    <td id="dateData"><input type="text" class="form-control" name="date" id="date" ></td>
+                                    <td id="dateData"><input type="text" class="form-control" placeholder="YYYY-MM-DD"name="date" id="date" ></td>
                                 </tr>
                                 <tr>
 
@@ -228,15 +237,17 @@
                                 <tr>
                                     <td><label>Remarks/Reference(if any) </label></td>
                                     <td><input type="text" class="form-control" name="remarks" id="remarks"/></td>
-                                    <td><label>Depositor ID </label></td>
-                                    <td id="depIdData"><input type="text" class="form-control" name="depositorId" id="depositorId"/></td>
+                                   <td><label>Depositor ID </label></td>
+                                   <td id="depIdData"><input type="text" class="form-control" name="depositorId" id="depositorId"/></td> 
                                 </tr>     
                             </table> 
                             <div class="form-group">
                                 <input data-loading-text="please Wait" type="submit"  class= "btn btn-success" value="Submit"/> 
                                 <input type="reset"  align="center"class="btn btn-danger" value="Reset"/> 
                             </div>
+                            
                         </form>
+                            
                     </div>
                 </div>
             </div>
