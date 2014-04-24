@@ -6,9 +6,16 @@ package org.bankapp.web.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
+import org.bankapp.bankservices.BankServices;
+import org.bankapp.domain.Balance;
+import org.bankapp.domain.Customer;
+import org.bankapp.utils.BankServiceUtils;
+import org.bankapp.web.utils.RandomGenerator;
 import org.bankapp.web.utils.RootServlet;
 
 /**
@@ -17,35 +24,41 @@ import org.bankapp.web.utils.RootServlet;
  */
 public class DepositFormController extends RootServlet {
 
+    private static final Logger LOG = Logger.getLogger(DepositFormController.class);
+
     @Override
     public void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        String payVocherNum = request.getParameter("payvocher");
+        BankServices service = BankServiceUtils.getInstance();
+
 
         String date = request.getParameter("date");
-
-        String branchName = request.getParameter("branchName");
 
         String accNum = request.getParameter("accountNumber");
 
         String custName = request.getParameter("customerName");
 
         String totalAmount = request.getParameter("totalAmount");
-
+        Double.parseDouble(totalAmount);
         String depositorName = request.getParameter("depositorName");
 
         String depositorId = request.getParameter("depositorId");
 
-        out.println(payVocherNum);
-        out.println(date);
-        out.println(branchName);
-        out.println(accNum);
-        out.println(custName);
-        out.println(totalAmount);
-        out.println(totalAmount);
-        out.println(depositorName);
-        out.println(depositorId);
+        LOG.debug(date);
+        LOG.debug(accNum);
+        LOG.debug(custName);
+        LOG.debug(totalAmount);
+        LOG.debug(depositorName);
+        // LOG.debug(depositorId);
+        String status = service.depositMoney(new Long(accNum), Double.parseDouble(totalAmount));
+
+        LOG.debug(status);
+        request.setAttribute("msg", status);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/depositform.jsp");
+        dispatcher.forward(request, response);
+
+
+
+
     }
 }
