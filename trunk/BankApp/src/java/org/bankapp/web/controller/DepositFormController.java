@@ -23,40 +23,42 @@ import org.bankapp.web.utils.RootServlet;
  * @author cmc5
  */
 public class DepositFormController extends RootServlet {
-  private static final Logger LOG = Logger.getLogger(DepositFormController.class);
+
+    private static final Logger LOG = Logger.getLogger(DepositFormController.class);
+
     @Override
     public void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       
-         BankServices service = BankServiceUtils.getInstance();
-     
+
+        BankServices service = BankServiceUtils.getInstance();
+
 
         String date = request.getParameter("date");
-        
+
         String accNum = request.getParameter("accountNumber");
 
         String custName = request.getParameter("customerName");
 
         String totalAmount = request.getParameter("totalAmount");
-         Double.parseDouble(totalAmount);
+
         String depositorName = request.getParameter("depositorName");
 
-        String depositorId = request.getParameter("depositorId");
+        // String depositorId = request.getParameter("depositorId");
 
         LOG.debug(date);
         LOG.debug(accNum);
         LOG.debug(custName);
         LOG.debug(totalAmount);
         LOG.debug(depositorName);
-       // LOG.debug(depositorId);
-     String  status= service.depositMoney(new Long(accNum), Double.parseDouble(totalAmount));
-          
-               LOG.debug(status);
-               request.setAttribute("msg", status);
-       RequestDispatcher dispatcher= request.getRequestDispatcher("/depositform.jsp");
-       dispatcher.forward(request, response);
-     
-        
-         
-         
-      }
+        // LOG.debug(depositorId);
+        service.depositMoney(new Long(accNum), Double.parseDouble(totalAmount));
+        String status="Transaction is Successfull, Thank You!";
+        LOG.debug(status);
+        request.setAttribute("msg", status);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/depositform.jsp");
+        dispatcher.forward(request, response);
+
+
+
+
+    }
 }
