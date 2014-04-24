@@ -155,13 +155,12 @@
                         <form class="form-group" id="depositid" method="POST" action="${pageContext.request.contextPath}/depositAmount"> 
                              <%
                                 if(request.getAttribute("msg")!=null){
-                                    
-                                
-                                %>
+                              %>
                                 <h4 align="center"><font color="green"><%=(request.getAttribute("msg")) %></font></h4>
+                               
                                 <%
                                 }
-                                %>
+                               %>
                             <table class="table table-bordered table-responsive table-condensed"  name="table1">
                                 <tr>
                                     <td><label>Payment Voucher Number</label></td>
@@ -175,7 +174,7 @@
                                     <td id="branchData"><input type="text" class="form-control" name="branchName" id="branchName"></td>
                                 </tr>
                                 <tr>
-                                    <td><label>Account Number</label></td>
+                                    <td><label>Account ID</label></td>
                                     <td id="accnumData"><input type="text" class="form-control" name="accountNumber" id="accountNumber"></td>
                                 </tr>
                                 <tr>

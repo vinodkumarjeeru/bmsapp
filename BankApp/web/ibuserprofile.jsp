@@ -269,10 +269,10 @@
                                 <a href="#" class="btn btn-success">Update</a>
                             </div>
                             <div id="buttonProfile">
-                                <a href="#" class="btn btn-primary">View Balance</a>
+                                <a href="userhomepage.jsp" class="btn btn-primary">View Balance</a>
                             </div>
                             <div id="changePswd">
-                                <a href="#" class="btn btn-warning">Change Password</a>
+                                <a href="ibUserChangePassword.jsp" class="btn btn-warning">Change Password</a>
                             </div>
                             <div id="buttonLogout">
                                 <a href="#" class="btn btn-danger">Logout</a>

@@ -86,7 +86,7 @@
                     <form id="ibuserchangepassword" method="POST" action="${pageContext.request.contextPath}/ibchangepassword">
 
                         <div class="form-group"id="accountNumberdiv">
-                            <label>Account Number</label>
+                            <label>Account ID</label>
                             <input type="number" name="accountNumber" class="form-control" id="accountNumber"/>
                         </div>
 

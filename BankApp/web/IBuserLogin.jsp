@@ -74,7 +74,7 @@
                     </div>
 
                     <div class ="form-group" id="AccNoDiv">
-                        <label class="control-label" align ="center">Account Number </label>
+                        <label class="control-label" align ="center">Account ID </label>
                         <input type="text" name="accountNumber" class ="form-control" id="accountNumber" />
                     </div>
 

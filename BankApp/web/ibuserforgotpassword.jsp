@@ -82,9 +82,10 @@
 
                     <div class="panel panel-body">
                         <form method="post" action="${pageContext.request.contextPath}/forgotPassword" id="passwordForm">
-
+                     
+                        
                             <div class="form-group" id="accountNumberDiv">
-                                <label>Account Number</label>
+                                <label>Account ID</label>
                                 <input type="text" name="accountNumber" class="form-control" id="accountNumber"/>
 
                             </div>
@@ -118,6 +119,17 @@
                                 <input type="reset"  class="btn btn-danger" value="Reset"/>
                             </div>
                         </form> 
+                    
+                    <% if(request.getAttribute("msg")!=null){
+                        
+                    
+                        %>
+                        <h6><%=(request.getAttribute("msg"))
+                                %></h6>
+                        <% }
+                        %>
+                    
+                    
                     </div>
                 </div>
             </div>

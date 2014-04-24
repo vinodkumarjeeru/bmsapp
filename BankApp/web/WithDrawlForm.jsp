@@ -163,7 +163,7 @@
 
                                 <tr>
 
-                                    <td><label>Account Number</label></td>
+                                    <td><label>Account ID</label></td>
                                     <td id="accountnumberDiv"><input type="number" class="form-control" name="accountNumber" id="accountnumber"></td>
 
                                 </tr>
@@ -197,7 +197,7 @@
                                 </tr>        
                                 <tr>
 
-                                    <td><label>Depositor ID </label></td>
+                                    <td><label>Signature</label></td>
                                     <td id="depositoridDiv"><input type="file" class="form-control" name="depositorId" id="depositorid"/></td>
 
                                 </tr>     
