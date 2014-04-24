@@ -358,6 +358,7 @@ and open the template in the editor.
                                    <input type="file" name="profilepic" class="form-control" id="image"/> 
                               </div>
 
+
                               <div class="form-group" id="signatureDiv">
                                    <label>Upload Signature</label>
                                    <input type="file" name="thumbPrint" class="form-control" id="signature"/> 

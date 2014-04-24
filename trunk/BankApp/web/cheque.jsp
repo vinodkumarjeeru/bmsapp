@@ -53,13 +53,13 @@
                         %>
                         <form class="form-group" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/cheque">
 
-                            <div class="form-group">
+                            <div class="form-group" id="date">
                                  <label class="control-label">Date</label>
                                    <input type="text" placeholder="YYYY-MM-DD" class="form-control" name="date" id="dateOfBirth" />
                                 
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" id="branch">
                                 <label>Branch Name</label>
                                 <input type="text" name="branchName" class="form-control"/>
                             </div>   
@@ -70,12 +70,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label>A/C Number</label>
+                                <label>Account ID</label>
                                 <input type="text" name="accountnumber" class="form-control"/>
                             </div>
 
                             <div class="form-group">
-                                <label>A/C Name</label>
+                                <label>User Name</label>
                                 <input type="text" name="accountname" class="form-control"/>
                             </div>
 

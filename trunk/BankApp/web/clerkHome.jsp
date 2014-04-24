@@ -41,19 +41,19 @@
                         
                             <tr>
                                
-                                <td><a href="#">Add User</a></td>
-                                <td><a href="#">Deposit</a></td>
-                                <td><a href="#">WithDrawl</a></td>
-                                <td><a href="#">List</a></td>
-                                <td><a href="#">Manage clerk</a></td>
-                                <td><a href="#">Credit Card</a></td>
-                                <td><a href="#">Debit Card</a></td>
+                                <td><a href="accountcreation.jsp">Add User</a></td>
+                                <td><a href="depositform.jsp">Deposit</a></td>
+                                <td><a href="WithDrawlForm.jsp">WithDrawl</a></td>
+                                <td><a href="List.jsp?name=user">List</a></td>
+                                <td><a href="cheque.jsp">Cheque Transactions</a></td>
+                                <td><a href="error.jsp">Credit Card</a></td>
+                                <td><a href="error.jsp">Debit Card</a></td>
                             </tr> 
                        
                     </table>
                    
             </div>
          </div>
-        
+         </div>
     </body>
 </html>
