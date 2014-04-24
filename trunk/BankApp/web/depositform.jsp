@@ -46,44 +46,44 @@
                     var paymentVocherNum = $('#PVN').val();
                     var date = $('#date').val();
                     var branch = $('#branchName').val();
-                    var  accnum=$('#accountNumber').val();
-                    var customerName=$('#customerName').val();
-                    var amtwords=$('#amt').val();            
-                    var amtrupees=$('#amtinw').val();
-                    var depositorName=$('#depositorName').val();
-                    var depositorId=$('#depositorId').val();
-                    
+                    var accnum = $('#accountNumber').val();
+                    var customerName = $('#customerName').val();
+                    var amtwords = $('#amt').val();
+                    var amtrupees = $('#amtinw').val();
+                    var depositorName = $('#depositorName').val();
+                    var depositorId = $('#depositorId').val();
+
                     if (paymentVocherNum.length == 0 || paymentVocherNum == null) {
                         $('#payData').addClass('has-error');
                         status = false;
                     } else {
                         $('#PVN').removeClass('has-error');
                     }
-                      if (date.length == 0 || date  == null) {
+                    if (date.length == 0 || date == null) {
                         $('#dateData').addClass('has-error');
                         status = false;
                     } else {
                         $('#date').removeClass('has-error');
                     }
-                      if (branch.length == 0 || branch  == null) {
+                    if (branch.length == 0 || branch == null) {
                         $('#branchData').addClass('has-error');
                         status = false;
                     } else {
                         $('#branchName').removeClass('has-error');
                     }
-                     if (branch.length == 0 || branch  == null) {
+                    if (branch.length == 0 || branch == null) {
                         $('#branchData').addClass('has-error');
                         status = false;
                     } else {
                         $('#branchName').removeClass('has-error');
                     }
-                     if (accnum.length == 0 || accnum  == null) {
+                    if (accnum.length == 0 || accnum == null) {
                         $('#accnumData').addClass('has-error');
                         status = false;
                     } else {
                         $('#accountNumber').removeClass('has-error');
                     }
-                     if (customerName.length == 0 || customerName  == null) {
+                    if (customerName.length == 0 || customerName == null) {
                         $('#custnameData').addClass('has-error');
                         status = false;
                     } else {
@@ -101,7 +101,7 @@
                     } else {
                         $('#amtinw').removeClass('has-error');
                     }
-                     if (depositorName.length == 0 || depositorName == null) {
+                    if (depositorName.length == 0 || depositorName == null) {
                         $('#depNameData').addClass('has-error');
                         status = false;
                     } else {
@@ -113,7 +113,7 @@
                     } else {
                         $('#depositorId').removeClass('has-error');
                     }
-                     if (status == false) {
+                    if (status == false) {
                         return false;
                     }
                 });
@@ -153,14 +153,18 @@
 
 
                         <form class="form-group" id="depositid" method="POST" action="${pageContext.request.contextPath}/depositAmount"> 
-                             <%
-                                if(request.getAttribute("msg")!=null){
-                              %>
-                                <h4 align="center"><font color="green"><%=(request.getAttribute("msg")) %></font></h4>
-                               
-                                <%
+                            <%
+                                if (request.getAttribute("msg") != null) {
+
+                            %>
+
+                            <h4 align="center" class="text-primary"><%=request.getAttribute("msg")%></h4>
+
+                            <%
                                 }
-                               %>
+
+                            %>
+
                             <table class="table table-bordered table-responsive table-condensed"  name="table1">
                                 <tr>
                                     <td><label>Payment Voucher Number</label></td>
@@ -236,17 +240,17 @@
                                 <tr>
                                     <td><label>Remarks/Reference(if any) </label></td>
                                     <td><input type="text" class="form-control" name="remarks" id="remarks"/></td>
-                                   <td><label>Depositor ID </label></td>
-                                   <td id="depIdData"><input type="text" class="form-control" name="depositorId" id="depositorId"/></td> 
+                                    <td><label>Depositor ID </label></td>
+                                    <td id="depIdData"><input type="text" class="form-control" name="depositorId" id="depositorId"/></td> 
                                 </tr>     
                             </table> 
                             <div class="form-group">
                                 <input data-loading-text="please Wait" type="submit"  class= "btn btn-success" value="Submit"/> 
                                 <input type="reset"  align="center"class="btn btn-danger" value="Reset"/> 
                             </div>
-                            
+
                         </form>
-                            
+
                     </div>
                 </div>
             </div>
