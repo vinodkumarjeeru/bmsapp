@@ -144,7 +144,7 @@ public class BankServicesImpl implements BankServices {
         Balance balance = getBalanceByAcctId(accountId);
         if (balance != null) {
             Query q = session.createQuery("from Customer c where c.accountId=:acctId");
-            q.setParameter("acctId", accountId);
+            q.setParameter("acctId", balance);
             Customer c = (Customer) q.uniqueResult();
             details = c.getDetaildId();
         }
