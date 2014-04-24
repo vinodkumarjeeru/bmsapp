@@ -50,14 +50,19 @@ public class DepositFormController extends RootServlet {
         LOG.debug(totalAmount);
         LOG.debug(depositorName);
         // LOG.debug(depositorId);
-        service.depositMoney(new Long(accNum), Double.parseDouble(totalAmount));
-        String status="Transaction is Successfull, Thank You!";
+        String status = service.depositMoney(new Long(accNum), Double.parseDouble(totalAmount));
+
+
         LOG.debug(status);
-        request.setAttribute("msg", status);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/depositform.jsp");
-        dispatcher.forward(request, response);
-
-
+        if (status != null) {
+            request.setAttribute("msg", "Transaction Success");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/depositform.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            request.setAttribute("msg", "Transaction Failed");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/depositform.jsp");
+            dispatcher.forward(request, response);
+        }
 
 
     }
