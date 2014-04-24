@@ -63,6 +63,14 @@
         <servlet-name>IbUserForgotPasswordController</servlet-name>
         <url-pattern>/forgotPassword</url-pattern> 
     </servlet-mapping>
+    <servlet>
+        <servlet-name>IbUseLloginController</servlet-name>
+        <servlet-class>org.bankapp.web.controller.IbUseLloginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IbUseLloginController</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
 
 
     <servlet>

@@ -64,7 +64,7 @@
 
             <div>
 
-                <h2 align="center">WELCOME <c:out value="${BankUser}"/> 
+                <h2 align="center">WELCOME <c:out value="${BankUser.role}"/> 
                     <span align="right" class="right close"><a href="LogOutController" class="btn btn-danger">Logout</a></span>
                 </h2>
 
@@ -72,6 +72,7 @@
 
 
         </c:if>
+
         <br>
 
         <div class ="form-group">

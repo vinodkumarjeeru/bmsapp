@@ -59,7 +59,7 @@
                             <%
                                 if (request.getAttribute("List") != null) {
                                     List<Customer> list = (List) request.getAttribute("List");
-                                    if (list.size() > 0) {
+                                    if (!list.isEmpty()) {
                                         for (Customer c : list) {
                             %>
                             <tr>

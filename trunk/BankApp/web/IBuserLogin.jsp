@@ -69,12 +69,12 @@
             <div class ="well  well-lg" id="Design" >
                 <form method="post" id="loginForm" action="${pageContext.request.contextPath}/login">
                     <div class ="form-group" id="userNameDiv">
-                        <label class="control-label" align ="center">User Name</label>
+                        <label class="control-label" align ="center">User Id</label>
                         <input type="text" name="userName" class ="form-control" id="userName"/>
                     </div>
 
                     <div class ="form-group" id="AccNoDiv">
-                        <label class="control-label" align ="center">Account ID </label>
+                        <label class="control-label" align ="center">Account Id</label>
                         <input type="text" name="accountNumber" class ="form-control" id="accountNumber" />
                     </div>
 

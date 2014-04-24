@@ -22,13 +22,13 @@
                     var status = true;
 
                     var branchname = $('#branchname').val();
-                    
+
                     var date = $('#date').val();
-                    
+
                     var accountnumber = $('#accountnumber').val();
-                    
+
                     var customername = $('#customername').val();
-                    
+
                     var amountrupees = $('#amountrupees').val();
                     var amountwords = $('#amountwords').val();
                     var mobilenumber = $('#mobilenumber').val();
@@ -133,18 +133,21 @@
         <div class="container">
             <div class="well well-sm" id="small" >
                 <div class="panel panel-primary">
+                    <c:if test="${empty BankUser}">
+                        <c:redirect url="bankLogin.jsp"/>
 
+                    </c:if>
                     <div class="panel panel-heading"><h3 align="center"> WITHDRAWL FORM</h3></div>
                     <div class="panel panel-body" id="form">
                         <form class="form-group" method="POST" id="withdraw" action="${pageContext.request.contextPath}/withdraw"> 
-                            
-                             <%
-                                   if (request.getAttribute("msg") != null) {
+
+                            <%
+                                if (request.getAttribute("msg") != null) {
 
 
-                              %>
-                              <h4 align='center' class='text-success'><b><%=(request.getAttribute("msg"))%></b></h4>
-                              <% }%>
+                            %>
+                            <h4 align='center' class='text-success'><b><%=(request.getAttribute("msg"))%></b></h4>
+                                    <% }%>
                             <table class="table table-bordered table-responsive table-condensed"  name="table1">
 
                                 <tr>
