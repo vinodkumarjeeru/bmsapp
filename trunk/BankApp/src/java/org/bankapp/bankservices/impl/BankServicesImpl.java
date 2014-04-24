@@ -31,6 +31,11 @@ public class BankServicesImpl implements BankServices {
         beginTrans();
         session.save(customer);
         transaction.commit();
+        try {
+            MailUtils.mail(customer);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
 
 
 
