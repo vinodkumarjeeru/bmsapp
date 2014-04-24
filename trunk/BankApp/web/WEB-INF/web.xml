@@ -81,8 +81,8 @@
     <servlet-mapping>
         <servlet-name>IbChangePasswordController</servlet-name>
         <url-pattern>/ibchangepassword</url-pattern>
-</servlet-mapping>
-     <servlet>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>WithdrawlController</servlet-name>
         <servlet-class>org.bankapp.web.controller.WithdrawlController</servlet-class>
     </servlet>
@@ -90,8 +90,8 @@
     <servlet-mapping>
         <servlet-name>WithdrawlController</servlet-name>
         <url-pattern>/withdraw</url-pattern>
-</servlet-mapping>
-<servlet>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>DepositFormController</servlet-name>
         <servlet-class>org.bankapp.web.controller.DepositFormController</servlet-class>
     </servlet>
@@ -99,8 +99,8 @@
     <servlet-mapping>
         <servlet-name>DepositFormController</servlet-name>
         <url-pattern>/depositAmount</url-pattern>
-</servlet-mapping> 
-<servlet>
+    </servlet-mapping> 
+    <servlet>
         <servlet-name>clerkLoginFormController</servlet-name>
         <servlet-class>org.bankapp.web.controller.clerkLoginFormController</servlet-class>
     </servlet>
@@ -119,8 +119,14 @@
         <url-pattern>/cheque</url-pattern>
         
     </servlet-mapping>
-    
-    
+    <servlet> 
+        <servlet-name>ListController</servlet-name>
+        <servlet-class>org.bankapp.web.controller.ListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListController</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
     
     
     <session-config>
