@@ -12,9 +12,9 @@ public interface BankServices {
     public void deleteAccount(Customer customer);
 
     public void changeAccountDetails(Customer customer);
-    
+
     public void changeAccountDetails(Bankuser bankuser);
-    
+
     public void changeAccountDetails(Balance balance);
 
     public void createDebitCard(Customer customer);
@@ -24,8 +24,12 @@ public interface BankServices {
     public Customer getCustomerById(Long id);
 
     public List<Customer> retrieveList();
-    
+
     public Bankuser getBankUserById(Long userId);
-    
+
     public Balance getBalanceByAcctId(Long accountId);
+
+    public String withdrawMoney(Long accountId,Double amount);
+    
+    public String depositMoney(Long accountId, Double amount);
 }
