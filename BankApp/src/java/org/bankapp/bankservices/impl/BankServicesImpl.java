@@ -5,6 +5,7 @@ import org.bankapp.bankservices.BankServices;
 import org.bankapp.domain.Balance;
 import org.bankapp.domain.Bankuser;
 import org.bankapp.domain.Customer;
+import org.bankapp.domain.Details;
 import org.bankapp.utils.HibernateUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -134,5 +135,17 @@ public class BankServicesImpl implements BankServices {
             status = "Deposited";
         }
         return status;
+    }
+
+    public Details getDetails(Long accountId) {
+        Details details = null;
+        Balance balance = getBalanceByAcctId(accountId);
+        if (balance != null) {
+            Query q = session.createQuery("from Customer c where c.accountId=:acctId");
+            q.setParameter("acctId", accountId);
+            Customer c = (Customer) q.uniqueResult();
+            details = c.getDetaildId();
+        }
+        return details;
     }
 }

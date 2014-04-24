@@ -4,6 +4,7 @@ import java.util.List;
 import org.bankapp.domain.Balance;
 import org.bankapp.domain.Bankuser;
 import org.bankapp.domain.Customer;
+import org.bankapp.domain.Details;
 
 public interface BankServices {
 
@@ -29,7 +30,9 @@ public interface BankServices {
 
     public Balance getBalanceByAcctId(Long accountId);
 
-    public String withdrawMoney(Long accountId,Double amount);
-    
+    public String withdrawMoney(Long accountId, Double amount);
+
     public String depositMoney(Long accountId, Double amount);
+
+    public Details getDetails(Long accountId);
 }
