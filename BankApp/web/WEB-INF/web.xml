@@ -80,7 +80,35 @@
     <servlet-mapping>
         <servlet-name>IbChangePasswordController</servlet-name>
         <url-pattern>/ibchangepassword</url-pattern>
-</servlet-mapping>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>IbUseLloginController</servlet-name>
+        <servlet-class>org.bankapp.web.controller.IbUseLloginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IbUseLloginController</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>clerkLoginFormController</servlet-name>
+        <servlet-class>org.bankapp.web.controller.clerkLoginFormController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>clerkLoginFormController</servlet-name>
+        <url-pattern>/clerkLogin</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ChequeController</servlet-name>
+        <servlet-class>org.bankapp.web.controller.ChequeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChequeController</servlet-name>
+        <url-pattern>/cheque</url-pattern>
+        
+    </servlet-mapping>
+    
+    
     
     
     <session-config>
