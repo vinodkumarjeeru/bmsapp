@@ -96,7 +96,7 @@
                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle"><font color="blue">USER MANAGEMENT</font><b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="accountcreation.jsp">Add</a></li>
-                                        <li><a href="List.jsp?name=user">Edit</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/list">Edit</a></li>
 
 
                                     </ul>    
