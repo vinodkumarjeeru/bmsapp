@@ -146,7 +146,10 @@
             <div class="well well-lg"></div>
             <div class="well well-sm" id="small" >
                 <div class="panel panel-primary">
+ <c:if test="${empty BankUser}">
+                <c:redirect url="bankLogin.jsp"/>
 
+            </c:if>
                     <div class="panel panel-heading"><h3 align="center"> DEPOSIT FORM</h3></div>
                     <div class="panel panel-body" id="form">
 

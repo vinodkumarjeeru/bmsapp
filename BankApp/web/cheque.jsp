@@ -33,7 +33,10 @@
             <div class="well well-sm">
 
                 <div class="panel panel-primary">
+                    <c:if test="${empty BankUser}">
+                        <c:redirect url="bankLogin.jsp"/>
 
+                    </c:if>
                     <div class="panel panel-heading"><h2 align="center">Cheque Book Status online</h2></div>
 
                     <div class="panel panel-body">
@@ -54,9 +57,9 @@
                         <form class="form-group" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/cheque">
 
                             <div class="form-group" id="date">
-                                 <label class="control-label">Date</label>
-                                   <input type="text" placeholder="YYYY-MM-DD" class="form-control" name="date" id="dateOfBirth" />
-                                
+                                <label class="control-label">Date</label>
+                                <input type="text" placeholder="YYYY-MM-DD" class="form-control" name="date" id="dateOfBirth" />
+
                             </div>
 
                             <div class="form-group" id="branch">
