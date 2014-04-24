@@ -204,7 +204,6 @@ and open the template in the editor.
                          } else if (accountType == 'Joint Account') {
                               $('#minimumbalance').val(350);
                          }
-
                     });
                });
           </script>
@@ -378,8 +377,6 @@ and open the template in the editor.
 
                               <%
                                    if (request.getAttribute("Msg") != null) {
-
-
                               %>
                               <h6> <b><%=(request.getAttribute("Msg"))%></b></h6>
                               <% }%>
