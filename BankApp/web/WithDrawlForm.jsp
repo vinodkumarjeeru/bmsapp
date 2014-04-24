@@ -136,7 +136,15 @@
 
                     <div class="panel panel-heading"><h3 align="center"> WITHDRAWL FORM</h3></div>
                     <div class="panel panel-body" id="form">
-                        <form class="form-group" method="POST" id="withdraw" action="${pageContext.request.contextPath}/withdrawlform"> 
+                        <form class="form-group" method="POST" id="withdraw" action="${pageContext.request.contextPath}/withdraw"> 
+                            
+                             <%
+                                   if (request.getAttribute("msg") != null) {
+
+
+                              %>
+                              <h4 align='center' class='text-success'><b><%=(request.getAttribute("msg"))%></b></h4>
+                              <% }%>
                             <table class="table table-bordered table-responsive table-condensed"  name="table1">
 
                                 <tr>
@@ -156,7 +164,7 @@
                                 <tr>
 
                                     <td><label>Account Number</label></td>
-                                    <td id="accountnumberDiv"><input type="text" class="form-control" name="accountNumber" id="accountnumber"></td>
+                                    <td id="accountnumberDiv"><input type="number" class="form-control" name="accountNumber" id="accountnumber"></td>
 
                                 </tr>
                                 <tr>
@@ -172,7 +180,7 @@
                                 <tr>
 
                                     <td><label>Amount in Rupees</label></td>
-                                    <td id="amountrupeesDiv"><input type="text" class="form-control" name="amount" id="amountrupees"/></td>
+                                    <td id="amountrupeesDiv"><input type="number" class="form-control" name="amount" id="amountrupees"/></td>
 
                                 </tr>  
                                 <tr>
@@ -184,7 +192,7 @@
                                 <tr>
 
                                     <td><label>Mobile Number</label></td>
-                                    <td id="mobilenumberDiv"><input type="text" class="form-control" name="mobileNumber" id="mobilenumber"/></td>
+                                    <td id="mobilenumberDiv"><input type="number" class="form-control" name="mobileNumber" id="mobilenumber"/></td>
 
                                 </tr>        
                                 <tr>
