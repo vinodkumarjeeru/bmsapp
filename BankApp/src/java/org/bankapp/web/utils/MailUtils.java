@@ -30,7 +30,6 @@ public class MailUtils {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
-
         Session session = Session.getDefaultInstance(props, new MailAut());
         InternetAddress toAddress = new InternetAddress(eMail);
         InternetAddress fromAddress = new InternetAddress("bankmanagementapp@gmail.com");
@@ -39,8 +38,7 @@ public class MailUtils {
         message.setFrom(fromAddress);
         message.setSentDate(new java.util.Date());
         message.setSubject("YOUR BANK ACCOUNT DETAILS.....");
-        message.setText("You Bank Acct Details \n\n\nACCOUNT ID -------------" + customer.getAccountId().getAccountId());
-        message.setText("Your Password :" + customer.getUserId().getPassword());
+        message.setText("You Bank Acct Details \n\n\nACCOUNT ID -------------" + customer.getAccountId().getAccountId() + "Your Password :" + customer.getUserId().getPassword());
         Transport.send(message);
     }
 }
