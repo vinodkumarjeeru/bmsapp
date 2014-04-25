@@ -21,24 +21,31 @@ import org.bankapp.web.utils.RootServlet;
  * @author vinod
  */
 public class ListController extends RootServlet {
-    
+
     private static Logger LOG = Logger.getLogger(ListController.class);
-    
+
     @Override
     public void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         BankServices services = BankServiceUtils.getInstance();
         List<Customer> customersList = services.retrieveList();
-        LOG.debug(customersList.size());
-        if (customersList.isEmpty()) {
-            request.setAttribute("List", "No List");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/List.jsp");
-            dispatcher.forward(request, response);
-            
-        } else {
-            request.setAttribute("List", customersList);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/List.jsp");
-            dispatcher.forward(request, response);
+        if (customersList != null) {
+            LOG.debug(customersList.size());
+            if (customersList.isEmpty()) {
+                request.setAttribute("List", customersList);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/List.jsp");
+                dispatcher.forward(request, response);
+
+            } else {
+                request.setAttribute("List", customersList);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/List.jsp");
+                dispatcher.forward(request, response);
+            }
+            LOG.debug(customersList);
+//        } else {
+//            request.setAttribute("List", "No List");
+//            RequestDispatcher dispatcher = request.getRequestDispatcher("/List.jsp");
+//            dispatcher.forward(request, response);
+//        }
         }
-        LOG.debug(customersList);
     }
 }

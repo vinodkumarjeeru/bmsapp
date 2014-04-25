@@ -64,11 +64,16 @@ public class AdminClerkLoginController extends RootServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/clerkHome.jsp");
                 dispatcher.forward(request, response);
                 return;
+            } else {
+                request.setAttribute("UserError", "Invalid Details are entered");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/bankLogin.jsp");
+                dispatcher.forward(request, response);
+                return;
             }
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/bankLogin.jsp");
-        dispatcher.forward(request, response);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/bankLogin.jsp");
+//        dispatcher.forward(request, response);
 
 
     }
