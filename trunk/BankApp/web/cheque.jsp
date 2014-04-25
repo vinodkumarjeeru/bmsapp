@@ -27,6 +27,7 @@
 
         <title>Cheque</title>
     </head>
+    <%@include file="logoutButton.jsp"%>
     <body>
         <div class="container">
 

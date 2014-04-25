@@ -27,11 +27,12 @@
 
 
         </style> 
-
+    </head>
+    <%@include file="logoutButton.jsp"%>
     <body>
         <div class="well well-sm" id="body">
             <c:if test="${empty BankUser}">
-                <c:redirect url="bankLogin.jsp"/>
+                <c:redirect url="index.html"/>
 
             </c:if>
             <div class="panel panel-primary">

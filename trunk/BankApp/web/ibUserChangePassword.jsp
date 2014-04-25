@@ -19,8 +19,8 @@
                 $('#ibuserchangepassword').submit(function() {
                     var accountNumber = $('#accountNumber').val();
                     var oldpswd = $('#oldpswd').val();
-                    var newpswd =$('#newpswd').val();
-                    var confirmpswd =$('#confirmpswd').val();
+                    var newpswd = $('#newpswd').val();
+                    var confirmpswd = $('#confirmpswd').val();
                     var status = true;
 
                     if (accountNumber.length == 0 || userName == null) {
@@ -29,21 +29,21 @@
                     } else {
                         $('#accountNumberdiv').removeClass('has-error');
                     }
-                    
-                     if (oldpswd.length == 0 || oldpswd == null) {
+
+                    if (oldpswd.length == 0 || oldpswd == null) {
                         $('#oldPassworddiv').addClass('has-error');
                         status = false;
                     } else {
                         $('#oldPassworddiv').removeClass('has-error');
                     }
-                    
-                     if (newpswd.length == 0 || newpswd == null) {
+
+                    if (newpswd.length == 0 || newpswd == null) {
                         $('#newPassworddiv').addClass('has-error');
                         status = false;
                     } else {
                         $('#newPassworddiv').removeClass('has-error');
                     }
-                    
+
                     if (confirmpswd.length == 0 || confirmpswd == null) {
                         $('#confirmpswddiv').addClass('has-error');
                         status = false;
@@ -78,7 +78,9 @@
 
         <title>Ib User Change Password</title>
     </head>
+    <%@include file="logoutButton.jsp"%>
     <body>
+
         <div class="container">
             <div class="well well-sm" id="well">
                 <div class="panel panel-heading" id="header"><h3 align="center">IB User Change Password</h3></div>
@@ -86,9 +88,16 @@
                     <form id="ibuserchangepassword" method="POST" action="${pageContext.request.contextPath}/ibchangepassword">
 
                         <div class="form-group"id="accountNumberdiv">
-                            <label>Account ID</label>
-                            <input type="number" name="accountNumber" class="form-control" id="accountNumber"/>
+                            <label>User ID</label>
+                            <% if (session.getAttribute("user") != null) {
+                                    Long userId = (Long) (session.getAttribute("user"));
+
+                            %>
+
+
+                            <input type="number" name="accountNumber" readonly="readonly" value="<%= userId%>"class="form-control" id="accountNumber"/>
                         </div>
+                        <%}%>
 
                         <div class="form-group"id="oldPassworddiv">
                             <label>Old Password</label>
@@ -111,13 +120,14 @@
 
                     </form>
                     <%
-                        if( request.getAttribute("msg")!=null){
-                            
-                      %>
-                        <h6><%=request.getAttribute("msg")%></h6>
-                        <%
+                        if (request.getAttribute("msg") != null) {
+
+                    %>
+                    <h6><%=request.getAttribute("msg")%></h6>
+                    <h6>Please Logout & Login for <strong><a href="index.html" class="text-info">Changes To effect</a></strong></h6>
+                    <%
                         }
-                            %>
+                    %>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
     Created on : Apr 18, 2014, 7:02:41 PM
     Author     : cmc
 --%>
-
+<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!--
 To change this template, choose Tools | Templates
@@ -194,9 +194,13 @@ and open the template in the editor.
         <title>APP | CLERK</title>
 
     </head>
-
+    <%@include file="logoutButton.jsp"%>
 
     <body>
+        <c:if test="${empty BankUser}">
+            <c:redirect url="index.html"/>
+
+        </c:if>
 
         <div class="container">
             <div class="jumbotron" id="clerkcreationDiv">

@@ -68,7 +68,10 @@
     </head>
     <body>
     <body>
+        <c:if test="${empty BankUser}">
+            <c:redirect url="bankLogin.jsp"/>
 
+        </c:if>
         <div class="well well-sm" id="well">
             <div class="panel panel-heading" id="header"><h3 align="center">Clerk Login Form</h3></div>
             <div class="panel panel-body">

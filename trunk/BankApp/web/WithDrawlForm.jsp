@@ -129,12 +129,13 @@
 
         </style>
     </head>
+    <%@include file="logoutButton.jsp"%>
     <body>
         <div class="container">
             <div class="well well-sm" id="small" >
                 <div class="panel panel-primary">
                     <c:if test="${empty BankUser}">
-                        <c:redirect url="bankLogin.jsp"/>
+                        <c:redirect url="index.html"/>
 
                     </c:if>
                     <div class="panel panel-heading"><h3 align="center"> WITHDRAWL FORM</h3></div>
