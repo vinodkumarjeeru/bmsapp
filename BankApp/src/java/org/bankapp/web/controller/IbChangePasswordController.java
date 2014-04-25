@@ -45,29 +45,32 @@ public class IbChangePasswordController extends RootServlet {
         Bankuser user = services.getBankUserById(new Long(accountNumber));
         if (user != null) {
             LOG.debug("Service User Ready");
-            if ((!(oldpswd).equals(newpswd)) && (!(newpswd.equals(confirmpswd))) && (!(user.getOldPassword().equals(oldpswd)))) {
-                request.setAttribute("passwordError", "Passwords are mismatched");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/ibUserChangePassword.jsp");
-                dispatcher.forward(request, response);
-                return;
-            } else {
-                LOG.debug(response);
-                List list = EncryptDecrypt.encrypt(newpswd);
-                LOG.debug(list.size());
-                String Estring = (String) list.get(0);
-                byte[] secKey = (byte[]) list.get(1);
-                LOG.debug(Estring + secKey);
-                Bankuser user1 = new Bankuser();
-                user1.setPassword(Estring);
-                user1.setUserId(user.getUserId());
-                user1.setRole(user.getRole());
-                user1.setOldPassword(oldpswd);
-                user1.setSecretKey(secKey);
-                services.changeAccountDetails(user1);
-                request.setAttribute("msg", "Your password is changed");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/ibUserChangePassword.jsp");
-                dispatcher.forward(request, response);
-                return;
+            if (user.getPassword() == null || user.getPassword().equals("")) {
+                if ((!(oldpswd).equals(newpswd)) && (!(newpswd.equals(confirmpswd))) && (!(user.getOldPassword().equals(oldpswd)))) {
+                    request.setAttribute("passwordError", "Passwords are mismatched");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/ibUserChangePassword.jsp");
+                    dispatcher.forward(request, response);
+                    return;
+                } else {
+                    LOG.debug(response);
+                    List list = EncryptDecrypt.encrypt(newpswd);
+                    LOG.debug(list.size());
+                    String Estring = (String) list.get(0);
+                    byte[] secKey = (byte[]) list.get(1);
+                    LOG.debug(Estring + secKey);
+                    Bankuser user1 = new Bankuser();
+                    user1.setPassword(Estring);
+                    user1.setUserId(user.getUserId());
+                    user1.setRole(user.getRole());
+                    user1.setOldPassword(oldpswd);
+                    user1.setSecretKey(secKey);
+                    services.changeAccountDetails(user1);
+                    request.setAttribute("msg", "Your password is changed");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/ibUserChangePassword.jsp");
+                    dispatcher.forward(request, response);
+                    return;
+                }
+                
             }
         } else {
             response.sendRedirect("IBuserLogin.jsp");
