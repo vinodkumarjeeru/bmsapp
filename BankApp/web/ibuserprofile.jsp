@@ -18,8 +18,8 @@
             $(document).ready(function() {
 
                 $('#ibuserprofile').submit(function() {
-                 var status = true;
-                 
+                    var status = true;
+
                     var firstName = $('#firstName').val();
                     var lastName = $('#lastName').val();
                     var mobilenumber = $('#mobilenumber').val();
@@ -33,11 +33,11 @@
                     var streatName = $('#streatName').val();
                     var city = $('#city').val();
                     var country = $('#country').val();
-                    var district = $('#district').val();                 
+                    var district = $('#district').val();
                     var state = $('#state').val();
                     var pincode = $('#pincode').val();
-                    
-          
+
+
                     if (firstName.length == 0 || firstName == null) {
                         $('#firstNameDiv').addClass('has-error');
                         status = false;
@@ -45,9 +45,9 @@
                     } else {
                         $('#firstNameDiv').removeClass('has-error');
                     }
-                    
-                    
-                    
+
+
+
                     if (lastName.length == 0 || lastName == null) {
                         $('#lastNameDiv').addClass('has-error');
                         status = false;
@@ -55,7 +55,7 @@
                     } else {
                         $('#lastNameDiv').removeClass('has-error');
                     }
-                    
+
                     if (mobilenumber.length == 0 || mobilenumber == null) {
                         $('#mobilenumberDiv').addClass('has-error');
                         status = false;
@@ -63,7 +63,7 @@
                     } else {
                         $('#mobilenumberDiv').removeClass('has-error');
                     }
-                    
+
                     if (email.length == 0 || email == null) {
                         $('#emailDiv').addClass('has-error');
                         status = false;
@@ -73,22 +73,22 @@
                     }
 
 
-                   if (picture.length == 0 || picture == null) {
+                    if (picture.length == 0 || picture == null) {
                         $('#pictureDiv').addClass('has-error');
                         status = false;
 
                     } else {
                         $('#pictureDiv').removeClass('has-error');
                     }
-                    
-                     if (signature.length == 0 || signature == null) {
+
+                    if (signature.length == 0 || signature == null) {
                         $('#signatureDiv').addClass('has-error');
                         status = false;
 
                     } else {
                         $('#signatureDiv').removeClass('has-error');
                     }
-                    
+
                     if (accountType.length == 0 || accountType == null) {
                         $('#accountDiv').addClass('has-error');
                         status = false;
@@ -96,25 +96,16 @@
                     } else {
                         $('#accountDiv').removeClass('has-error');
                     }
-                    
-                      if (minimumbalance.length == 0 || minimumbalance == null) {
+
+                    if (minimumbalance.length == 0 || minimumbalance == null) {
                         $('#minimumbalanceDiv').addClass('has-error');
                         status = false;
 
                     } else {
                         $('#minimumbalanceDiv').removeClass('has-error');
                     }
-                    
-                    
-                     if (addressId.length == 0 || addressId == null) {
-                        $('#addressIdDiv').addClass('has-error');
-                        status = false;
 
-                    } else {
-                        $('#addressIdDiv').removeClass('has-error');
-                    }
-                    
-                    
+
                     if (addressId.length == 0 || addressId == null) {
                         $('#addressIdDiv').addClass('has-error');
                         status = false;
@@ -122,7 +113,16 @@
                     } else {
                         $('#addressIdDiv').removeClass('has-error');
                     }
-                    
+
+
+                    if (addressId.length == 0 || addressId == null) {
+                        $('#addressIdDiv').addClass('has-error');
+                        status = false;
+
+                    } else {
+                        $('#addressIdDiv').removeClass('has-error');
+                    }
+
                     if (doorNo.length == 0 || doorNo == null) {
                         $('#doorNoDiv').addClass('has-error');
                         status = false;
@@ -130,16 +130,16 @@
                     } else {
                         $('#doorNoDiv').removeClass('has-error');
                     }
-                    
-                    
-                     if (streatName.length == 0 || streatName == null) {
+
+
+                    if (streatName.length == 0 || streatName == null) {
                         $('#streatNameDiv').addClass('has-error');
                         status = false;
 
                     } else {
                         $('#streatNameDiv').removeClass('has-error');
                     }
-                    
+
                     if (city.length == 0 || city == null) {
                         $('#cityDiv').addClass('has-error');
                         status = false;
@@ -147,24 +147,24 @@
                     } else {
                         $('#cityDiv').removeClass('has-error');
                     }
-                    
-                     if (country.length == 0 || country == null) {
+
+                    if (country.length == 0 || country == null) {
                         $('#countryDiv').addClass('has-error');
                         status = false;
 
                     } else {
                         $('#countryDiv').removeClass('has-error');
                     }
-                    
-                    
-                     if (district.length == 0 || district == null) {
+
+
+                    if (district.length == 0 || district == null) {
                         $('#districtDiv').addClass('has-error');
                         status = false;
 
                     } else {
                         $('#districtDiv').removeClass('has-error');
                     }
-                    
+
                     if (state.length == 0 || state == null) {
                         $('#stateDiv').addClass('has-error');
                         status = false;
@@ -172,19 +172,19 @@
                     } else {
                         $('#stateDiv').removeClass('has-error');
                     }
-                    
-                     if (pincode.length == 0 || pincode == null) {
+
+                    if (pincode.length == 0 || pincode == null) {
                         $('#pincodeDiv').addClass('has-error');
                         status = false;
 
                     } else {
                         $('#pincodeDiv').removeClass('has-error');
                     }
-                    
 
-                         if (status == false) {
-                              return false;
-                         }
+
+                    if (status == false) {
+                        return false;
+                    }
 
 
                 });
@@ -256,6 +256,7 @@
         </style>
         <title>ibuserprofile</title>
     </head>
+    <%@include file="logoutButton.jsp"%>
     <body>
         <div class="well well-lg" id='body'>
 

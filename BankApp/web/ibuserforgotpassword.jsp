@@ -60,14 +60,15 @@
         </script>
         <style type="text/css">
 
-           #clerkcreationDiv {
+            #clerkcreationDiv {
                 background-color: #428BCA;
-                
+
             }
 
         </style>
 
     </head>
+    <%@include file="logoutButton.jsp"%>
     <body>
         <div class="container">
             <div class="jumbotron" id="clerkcreationDiv">
@@ -82,8 +83,8 @@
 
                     <div class="panel panel-body">
                         <form method="post" action="${pageContext.request.contextPath}/forgotPassword" id="passwordForm">
-                     
-                        
+
+
                             <div class="form-group" id="accountNumberDiv">
                                 <label>Account ID</label>
                                 <input type="text" name="accountNumber" class="form-control" id="accountNumber"/>
@@ -119,17 +120,16 @@
                                 <input type="reset"  class="btn btn-danger" value="Reset"/>
                             </div>
                         </form> 
-                    
-                    <% if(request.getAttribute("msg")!=null){
-                        
-                    
+
+                        <% if (request.getAttribute("msg") != null) {
+
+
                         %>
-                        <h6><%=(request.getAttribute("msg"))
-                                %></h6>
-                        <% }
-                        %>
-                    
-                    
+                            <h6><%=(request.getAttribute("msg"))%></h6>
+                            <% }
+                            %>
+
+
                     </div>
                 </div>
             </div>

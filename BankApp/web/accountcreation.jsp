@@ -14,15 +14,29 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <meta http-equiv="Content-Type" content="text/html" charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 
         <script type="text/javascript">
 
             $(document).ready(function() {
+                $('#account').blur(function() {
+                    var accountType = $('#account').val();
+                    if (accountType == 'Student Account') {
+                        $('#minimumbalance').val(500);
+                    } else if (accountType == 'Savings Account') {
+                        $('#minimumbalance').val(1000);
+                    } else if (accountType == 'Pension Account') {
+                        $('#minimumbalance').val(250);
+                    } else if (accountType == 'Business Account') {
+                        $('#minimumbalance').val(300);
+                    } else if (accountType == 'Joint Account') {
+                        $('#minimumbalance').val(350);
+                    }
+                });
 
                 $('#accountantForm').submit(function() {
                     var status = true;
@@ -54,8 +68,6 @@ and open the template in the editor.
                     } else {
                         $('#accountDiv').removeClass('has-error');
                         $('#mbDiv').removeClass('has-error');
-
-
                     }
 
                     if (firstName.length == 0 || firstName == null) {
@@ -153,8 +165,6 @@ and open the template in the editor.
                         $('#stateNameDiv').removeClass('has-error');
                     }
 
-
-
                     if (country.length == 0 || country == null) {
                         $('#countryDiv').addClass('has-error');
                         status = false;
@@ -192,20 +202,7 @@ and open the template in the editor.
                     $('#status').attr('checked', 'checked');
                 });
 
-                $('#account').blur(function() {
-                    var accountType = $('#account').val();
-                    if (accountType == 'Student Account') {
-                        $('#minimumbalance').val(500);
-                    } else if (accountType == 'Savings Account') {
-                        $('#minimumbalance').val(1000);
-                    } else if (accountType == 'Pension Account') {
-                        $('#minimumbalance').val(250);
-                    } else if (accountType == 'Business Account') {
-                        $('#minimumbalance').val(300);
-                    } else if (accountType == 'Joint Account') {
-                        $('#minimumbalance').val(350);
-                    }
-                });
+
             });
         </script>
 
@@ -217,21 +214,20 @@ and open the template in the editor.
 
         <title>Accountant Creation</title>
     </head>
+    <%@include file="logoutButton.jsp"%>
     <body>
-
+        <c:if test="${empty BankUser}">
+            <c:redirect url="index.html"/>
+        </c:if>
         <div class="container">
             <div class="jumbotron" id="clerkcreationDiv">
                 <h2 align="center" class="bg-primary">Account Creation</h2>
             </div>
 
-
-
             <div class="well well-sm">
 
                 <div class="panel panel-primary">
-                    <c:if test="${empty BankUser}">
-                        <c:redirect url="bankLogin.jsp"/>
-                    </c:if>
+
                     <div class="panel panel-heading">Account Details</div>
 
 
@@ -275,8 +271,8 @@ and open the template in the editor.
                                     <option>Select Your Option</option>
                                     <option>Student</option>
                                     <option> Government Employee</option>
-                                    <option>PrivateSector Employee</option>
-                                    <option>Unemployee</option>
+                                    <option>Private Sector Employee</option>
+                                    <option>Not Yet An Employee</option>
                                     <option>Senior Citizens</option>
                                 </select>
                             </div>

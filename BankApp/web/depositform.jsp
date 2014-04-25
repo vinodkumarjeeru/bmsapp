@@ -141,15 +141,16 @@
 
         <title>DEPOSIT FORM</title>
     </head>
+    <%@include file="logoutButton.jsp"%>
     <body>
         <div class="container">
             <div class="well well-lg"></div>
             <div class="well well-sm" id="small" >
                 <div class="panel panel-primary">
- <c:if test="${empty BankUser}">
-                <c:redirect url="bankLogin.jsp"/>
+                    <c:if test="${empty BankUser}">
+                        <c:redirect url="index.html"/>
 
-            </c:if>
+                    </c:if>
                     <div class="panel panel-heading"><h3 align="center"> DEPOSIT FORM</h3></div>
                     <div class="panel panel-body" id="form">
 

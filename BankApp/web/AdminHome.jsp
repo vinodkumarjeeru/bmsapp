@@ -60,6 +60,9 @@
         <title>WELCOME ADMINISTRATOR FORM</title>
     </head>
     <body>
+        <c:if test="${empty BankUser}">
+            <c:redirect url="index.html"/>
+        </c:if>
         <c:if test="${not empty BankUser}">
 
             <div>
@@ -72,6 +75,7 @@
 
 
         </c:if>
+
 
         <br>
 
