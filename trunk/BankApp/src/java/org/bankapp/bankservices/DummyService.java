@@ -6,6 +6,7 @@
 
 package org.bankapp.bankservices;
 
+import java.util.List;
 import org.bankapp.domain.Dummy;
 
 /**
@@ -15,5 +16,11 @@ import org.bankapp.domain.Dummy;
 public interface DummyService {
 
     void create(Dummy dummy);
+    
+    List<Dummy> getAll();
+    
+    void delete(Dummy dummy);
+    
+    Dummy getDummy(Long id);
     
 }
