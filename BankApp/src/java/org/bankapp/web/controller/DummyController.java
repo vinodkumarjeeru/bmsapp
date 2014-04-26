@@ -35,26 +35,46 @@ public class DummyController extends HttpServlet {
 
             DummyService dummyService = BankServiceUtils.getDummyService();
 
-            try {
-                
-                
-                
-                
-                InputStream inputStream = this.getServletContext().getResourceAsStream("images/error.jpg");
-                byte[] imageBytes = new byte[inputStream.available()];
-                inputStream.read(imageBytes);
-
-                Dummy dummy = new Dummy();
-                dummy.setName("BBB");
-                dummy.setPic(imageBytes);
-
-                dummyService.create(dummy);
-            } catch (FileNotFoundException ex) {
-                LOG.warn("", ex);
-            } catch (IOException ex) {
-                LOG.warn("", ex);
-            }
-
+            
+            // Create
+//            try {
+//                
+//                
+//                
+//                
+//                InputStream inputStream = this.getServletContext().getResourceAsStream("images/error.jpg");
+//                byte[] imageBytes = new byte[inputStream.available()];
+//                inputStream.read(imageBytes);
+//
+//                Dummy dummy = new Dummy();
+//                dummy.setName("BBB");
+//                dummy.setPic(imageBytes);
+//
+//                dummyService.create(dummy);
+//            } catch (FileNotFoundException ex) {
+//                LOG.warn("", ex);
+//            } catch (IOException ex) {
+//                LOG.warn("", ex);
+//            }
+            
+            
+            // Get All
+            //out.print(dummyService.getAll());
+            
+            
+            //Delete
+//            Dummy dummy = new Dummy();
+//            dummy.setId(15L);
+//            dummyService.delete(dummy);
+//          
+            
+            
+            
+            
+            //Find
+            
+            
+            out.println(dummyService.getDummy(3L));
         } finally {
             out.close();
         }
