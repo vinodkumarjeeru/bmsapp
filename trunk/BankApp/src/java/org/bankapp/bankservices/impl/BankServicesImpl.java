@@ -1,8 +1,7 @@
 package org.bankapp.bankservices.impl;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 import org.bankapp.bankservices.BankServices;
 import org.bankapp.domain.Balance;
 import org.bankapp.domain.Bankuser;
@@ -16,8 +15,7 @@ import org.hibernate.Transaction;
 
 public class BankServicesImpl implements BankServices {
 
-    private Session session = HibernateUtils.currentSession();
-    private Transaction transaction = session.beginTransaction();
+    private static final Logger LOG = Logger.getLogger(BankServicesImpl.class);
     private static BankServicesImpl IMPL = new BankServicesImpl();
 
     public static BankServices getInstance() {
@@ -28,31 +26,73 @@ public class BankServicesImpl implements BankServices {
     }
 
     public void createAccount(Customer customer) {
-        beginTrans();
-        session.save(customer);
-        transaction.commit();
+
+        boolean rollback = true;
+        Session session = HibernateUtils.currentSession();
+        Transaction tx = null;
+
         try {
+            tx = session.beginTransaction();
+            session.save(customer);
+            tx.commit();
+            rollback = false;
             MailUtils.mail(customer);
+
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            LOG.debug(ex);
+        } finally {
+            if (rollback && tx != null) {
+                tx.rollback();
+
+            }
+            HibernateUtils.closeSession();
         }
-
-
-
     }
 
     public void deleteAccount(Customer customer) {
-        beginTrans();
-        session.delete(customer);
-        transaction.commit();
+        boolean rollback = true;
+        Session session = HibernateUtils.currentSession();
+        Transaction tx = null;
 
+        try {
+            tx = session.beginTransaction();
+            session.delete(customer);
+            tx.commit();
+            rollback = false;
+
+        } catch (Exception e) {
+            LOG.debug(e);
+        } finally {
+            if (rollback && tx != null) {
+                tx.rollback();
+
+            }
+        }
+
+        HibernateUtils.closeSession();
 
     }
 
     public void changeAccountDetails(Customer customer) {
-        beginTrans();
-        session.merge(customer);
-        transaction.commit();
+        boolean rollback = true;
+        Session session = HibernateUtils.currentSession();
+        Transaction tx = null;
+
+        try {
+
+            tx = session.beginTransaction();
+            session.merge(customer);
+            tx.commit();
+            rollback = false;
+        } catch (Exception e) {
+            LOG.debug(e);
+        } finally {
+            if (rollback && tx != null) {
+                tx.rollback();
+            }
+        }
+
+        HibernateUtils.closeSession();
 
     }
 
@@ -65,117 +105,226 @@ public class BankServicesImpl implements BankServices {
     }
 
     public List<Customer> retrieveList() {
+        List<Customer> list = null;
 
-        Query query = session.createQuery("from Customer");
-        List<Customer> list = query.list();
+        try {
+            Session session = HibernateUtils.currentSession();
+            Query query = session.createQuery("from Customer");
+            list = query.list();
+            HibernateUtils.closeSession();
+        } catch (Exception e) {
+            LOG.debug(e);
+        }
 
         return list;
+
+
     }
 
     public Customer getCustomerById(Long id) {
-        Query q = session.createQuery("from Customer customer where customer.customerId=:customerId");
-        q.setParameter("customerId", new Long(id));
-        Customer c = (Customer) q.uniqueResult();
-        return c;
+        Customer customer = null;
+
+        try {
+            Session session = HibernateUtils.currentSession();
+            Query q = session.createQuery("from Customer customer where customer.customerId=:customerId");
+            q.setParameter("customerId", new Long(id));
+            customer = (Customer) q.uniqueResult();
+        } catch (Exception e) {
+            LOG.debug(e);
+        }
+
+        HibernateUtils.closeSession();
+        return customer;
     }
 
     public Bankuser getBankUserById(Long userId) {
+
         Bankuser bankuser = null;
-        Query q = session.createQuery("from Bankuser bankUser where bankUser.userId=:userId");
-        q.setParameter("userId", new Long(userId));
-        bankuser = (Bankuser) q.uniqueResult();
+
+        try {
+            Session session = HibernateUtils.currentSession();
+            Query q = session.createQuery("from Bankuser bankUser where bankUser.userId=:userId");
+            q.setParameter("userId", new Long(userId));
+            bankuser = (Bankuser) q.uniqueResult();
+        } catch (Exception e) {
+            LOG.debug(e);
+        }
+
+        HibernateUtils.closeSession();
         return bankuser;
+
     }
 
     public Balance getBalanceByAcctId(Long accountId) {
         Balance balance = null;
-        Query q = session.createQuery("from Balance balance where balance.accountId=:acctId");
-        q.setParameter("acctId", new Long(accountId));
-        balance = (Balance) q.uniqueResult();
+
+        try {
+            Session session = HibernateUtils.currentSession();
+            Query q = session.createQuery("from Balance balance where balance.accountId=:acctId");
+            q.setParameter("acctId", new Long(accountId));
+            balance = (Balance) q.uniqueResult();
+        } catch (Exception e) {
+            LOG.debug(e);
+        }
+
+        HibernateUtils.closeSession();
         return balance;
     }
 
     public void changeAccountDetails(Bankuser bankuser) {
-        beginTrans();
-        session.merge(bankuser);
-        transaction.commit();
+        Session session = HibernateUtils.currentSession();
+        Transaction tx = null;
+        boolean rollback = true;
+
+        try {
+            tx = session.beginTransaction();
+            session.merge(bankuser);
+            tx.commit();
+            rollback = false;
+        } catch (Exception e) {
+            LOG.debug(e);
+        } finally {
+            if (rollback && tx != null) {
+                tx.rollback();
+
+            }
+        }
+        HibernateUtils.closeSession();
     }
 
     public void changeAccountDetails(Balance balance) {
-        beginTrans();
-        session.merge(balance);
-        transaction.commit();
-    }
 
-    private void beginTrans() {
-        transaction.begin();
+        Session session = HibernateUtils.currentSession();
+        Transaction tx = null;
+        boolean rollback = true;
+
+        try {
+            tx = session.beginTransaction();
+            session.merge(balance);
+            tx.commit();
+            rollback = false;
+        } catch (Exception e) {
+            LOG.debug(e);
+        } finally {
+            if (rollback && tx != null) {
+                tx.rollback();
+            }
+        }
+
+        HibernateUtils.closeSession();
     }
 
     public String withdrawMoney(Long accountId, Double amount) {
 
         //Customer c = new Customer();
-        beginTrans();
+        Session session = HibernateUtils.currentSession();
+        Transaction tx = null;
+        boolean rollback = true;
         String status = null;
-        Balance balance = getBalanceByAcctId(accountId);
-        if (balance != null) {
-            Query q = session.createQuery("from Customer customer where customer.accountId=:accountId");
-            q.setParameter("accountId", balance);
-            Customer c = (Customer) q.uniqueResult();
-            Double minBal = c.getDetaildId().getMinimumBalance();
-            if ((balance.getBalance() - amount) < minBal) {
-                status = "Low Balance";
-            } else {
-                balance.setBalance((balance.getBalance()) - amount);
-                session.merge(balance);
-                transaction.commit();
-                status = "Withdrawn";
+
+        try {
+            tx = session.beginTransaction();
+            Balance balance = getBalanceByAcctId(accountId);
+            if (balance != null) {
+                Query q = session.createQuery("from Customer customer where customer.accountId=:accountId");
+                q.setParameter("accountId", balance);
+                Customer c = (Customer) q.uniqueResult();
+                Double minBal = c.getDetaildId().getMinimumBalance();
+                if ((balance.getBalance() - amount) < minBal) {
+                    status = "Low Balance";
+                } else {
+                    balance.setBalance((balance.getBalance()) - amount);
+                    session.merge(balance);
+                    tx.commit();
+                    rollback = false;
+                    status = "Withdrawn";
+                }
+            }
+        } catch (Exception e) {
+            LOG.debug(e);
+        } finally {
+
+            if (rollback && tx != null) {
+                tx.rollback();
+
             }
         }
+
+        HibernateUtils.closeSession();
         return status;
     }
 
     public String depositMoney(Long accountId, Double amount) {
-        beginTrans();
+
+        Session session = HibernateUtils.currentSession();
+        Transaction tx = session.beginTransaction();
         String status = null;
-        Balance balance = getBalanceByAcctId(accountId);
-        if (balance != null) {
-            balance.setBalance(balance.getBalance() + amount);
-            session.merge(balance);
-            transaction.commit();
-            status = "Deposited";
+        boolean rollback = true;
+
+        try {
+
+            Balance balance = getBalanceByAcctId(accountId);
+            if (balance != null) {
+                balance.setBalance(balance.getBalance() + amount);
+                session.merge(balance);
+                tx.commit();
+                rollback = false;
+                status = "Deposited";
+            }
+        } catch (Exception e) {
+            LOG.debug(e);
+        } finally {
+            if (rollback && tx != null) {
+                tx.rollback();
+            }
         }
+
+        HibernateUtils.closeSession();
         return status;
     }
 
     public Details getDetails(Long accountId) {
+
         Details details = null;
-        Balance balance = getBalanceByAcctId(accountId);
-        if (balance != null) {
-            Query q = session.createQuery("from Customer c where c.accountId=:acctId");
-            q.setParameter("acctId", balance);
-            Customer c = (Customer) q.uniqueResult();
-            details = c.getDetaildId();
+        try {
+            Session session = HibernateUtils.currentSession();
+            Balance balance = getBalanceByAcctId(accountId);
+            if (balance != null) {
+                Query q = session.createQuery("from Customer c where c.accountId=:acctId");
+                q.setParameter("acctId", balance);
+                Customer c = (Customer) q.uniqueResult();
+                details = c.getDetaildId();
+            }
+        } catch (Exception e) {
+            LOG.debug(e);
         }
+        HibernateUtils.closeSession();
         return details;
     }
 
     private void sendPasswordMail(String eMail, Customer customer) {
         try {
             MailUtils.mail(eMail, customer);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+        } catch (Exception e) {
+            LOG.debug(e);
         }
     }
 
     public void forgetPassword(Long accountNumber) {
-        String mailId = null;
-        Balance balance = getBalanceByAcctId(accountNumber);
-        if (balance != null) {
-            Query q = session.createQuery("from Customer c where c.accountId=:acctId");
-            q.setParameter("acctId", balance);
-            Customer customer = (Customer) q.uniqueResult();
-            mailId = customer.getDetaildId().getEmailId();
-            sendPasswordMail(mailId, customer);
+        try {
+            Session session = HibernateUtils.currentSession();
+            String mailId = null;
+            Balance balance = getBalanceByAcctId(accountNumber);
+            if (balance != null) {
+                Query q = session.createQuery("from Customer c where c.accountId=:acctId");
+                q.setParameter("acctId", balance);
+                Customer customer = (Customer) q.uniqueResult();
+                mailId = customer.getDetaildId().getEmailId();
+                sendPasswordMail(mailId, customer);
+            }
+        } catch (Exception e) {
+            LOG.debug(e);
         }
+        HibernateUtils.closeSession();
     }
 }
